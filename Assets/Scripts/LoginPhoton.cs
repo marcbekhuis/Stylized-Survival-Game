@@ -14,8 +14,13 @@ public class LoginPhoton : MonoBehaviourPunCallbacks
 
     private void Start()
     {
-        PhotonNetwork.GameVersion = Application.version;
-        PhotonNetwork.AutomaticallySyncScene = true;
+        if (PhotonNetwork.IsConnected)
+        {
+            PhotonNetwork.GameVersion = Application.version;
+            PhotonNetwork.AutomaticallySyncScene = true;
+        }
+        mainMenuPanel.SetActive(PhotonNetwork.IsConnected);
+        loginPanel.SetActive(!PhotonNetwork.IsConnected);
     }
 
     public void Login()
