@@ -43,5 +43,6 @@ public class LoginPhoton : MonoBehaviourPunCallbacks
         loginButton.interactable = true;
         loginPanel.SetActive(false);
         mainMenuPanel.SetActive(true);
+        PhotonNetwork.JoinLobby();
     }
 }

@@ -9,20 +9,24 @@ public class PhotonRoomList : MonoBehaviourPunCallbacks
     [SerializeField] private RoomDisplay roomDisplayPrefab;
     [SerializeField] private Transform roomDisplayParent;
 
-    private List<GameObject> roomsDisplay = new List<GameObject>();
+    private Dictionary<string, RoomDisplay> roomsDisplay = new Dictionary<string, RoomDisplay>();
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
-        foreach (var roomDisplay in roomsDisplay)
-        {
-            Destroy(roomDisplay);
-        }
-
         foreach (var room in roomList)
         {
-            RoomDisplay roomDisplay = Instantiate(roomDisplayPrefab, roomDisplayParent);
-            roomDisplay.Setup(room);
-            roomsDisplay.Add(roomDisplay.gameObject);
+            Debug.LogError(room.Name);
+            if (!roomsDisplay.ContainsKey(room.Name))
+            {
+                RoomDisplay roomDisplay = Instantiate(roomDisplayPrefab, roomDisplayParent);
+                roomDisplay.GetComponent<RoomDisplay>().Setup(room);
+                roomsDisplay.Add(room.Name, roomDisplay);
+            }
+            else if(room.RemovedFromList)
+            {
+                Destroy(roomsDisplay[room.Name].gameObject);
+                roomsDisplay.Remove(room.Name);
+            }
         }
     }
 }
