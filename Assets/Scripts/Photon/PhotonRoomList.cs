@@ -15,10 +15,14 @@ public class PhotonRoomList : MonoBehaviourPunCallbacks
     {
         foreach (var room in roomList)
         {
-            if (room.RemovedFromList && roomsDisplay.ContainsKey(room.Name))
+            if (room.RemovedFromList)
             {
-                Destroy(roomsDisplay[room.Name].gameObject);
-                roomsDisplay.Remove(room.Name);
+                if (roomsDisplay.ContainsKey(room.Name))
+                {
+                    Destroy(roomsDisplay[room.Name].gameObject);
+                    roomsDisplay.Remove(room.Name);
+                }
+                break;
             }
             if (!roomsDisplay.ContainsKey(room.Name))
             {
