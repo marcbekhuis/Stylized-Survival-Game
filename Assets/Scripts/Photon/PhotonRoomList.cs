@@ -16,17 +16,17 @@ public class PhotonRoomList : MonoBehaviourPunCallbacks
         foreach (var room in roomList)
         {
             Debug.LogError(room.Name);
+            if (room.RemovedFromList)
+            {
+                Destroy(roomsDisplay[room.Name].gameObject);
+                roomsDisplay.Remove(room.Name);
+            }
             if (!roomsDisplay.ContainsKey(room.Name))
             {
                 RoomDisplay roomDisplay = Instantiate(roomDisplayPrefab, roomDisplayParent);
                 roomDisplay.GetComponent<RoomDisplay>().Setup(room);
                 roomsDisplay.Add(room.Name, roomDisplay);
                 roomDisplay.gameObject.SetActive(room.IsOpen || room.IsVisible);
-            }
-            else if (room.RemovedFromList)
-            {
-                Destroy(roomsDisplay[room.Name].gameObject);
-                roomsDisplay.Remove(room.Name);
             }
             else
             {
