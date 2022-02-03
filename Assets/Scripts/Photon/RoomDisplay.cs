@@ -21,6 +21,13 @@ public class RoomDisplay : MonoBehaviour
         joinRoomButton.onClick.AddListener(JoinRoom);
     }
 
+    public void UpdateInfo(RoomInfo roomInfo)
+    {
+        room = roomInfo;
+        roomNameText.text = roomInfo.Name;
+        playerCountText.text = roomInfo.PlayerCount + "/" + roomInfo.MaxPlayers + " Players";
+    }
+
     private void JoinRoom()
     {
         PhotonNetwork.JoinRoom(room.Name);

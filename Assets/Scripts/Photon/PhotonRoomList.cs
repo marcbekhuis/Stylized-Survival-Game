@@ -21,11 +21,17 @@ public class PhotonRoomList : MonoBehaviourPunCallbacks
                 RoomDisplay roomDisplay = Instantiate(roomDisplayPrefab, roomDisplayParent);
                 roomDisplay.GetComponent<RoomDisplay>().Setup(room);
                 roomsDisplay.Add(room.Name, roomDisplay);
+                roomDisplay.gameObject.SetActive(!room.IsOpen || !room.IsVisible);
             }
-            else if(room.RemovedFromList)
+            else if (room.RemovedFromList)
             {
                 Destroy(roomsDisplay[room.Name].gameObject);
                 roomsDisplay.Remove(room.Name);
+            }
+            else
+            {
+                roomsDisplay[room.Name].UpdateInfo(room);
+                roomsDisplay[room.Name].gameObject.SetActive(!room.IsOpen || !room.IsVisible);
             }
         }
     }

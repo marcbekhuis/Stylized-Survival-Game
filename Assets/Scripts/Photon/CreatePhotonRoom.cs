@@ -27,6 +27,8 @@ public class CreatePhotonRoom : MonoBehaviourPunCallbacks
         int maxPlayers = int.Parse(maxPlayersInputfield.text.Trim());
         RoomOptions options = new RoomOptions();
         options.MaxPlayers = (byte)maxPlayers;
+        options.IsOpen = true;
+        options.IsVisible = true;
 
         PhotonNetwork.CreateRoom(roomName, options);
     }
