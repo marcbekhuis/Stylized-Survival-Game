@@ -15,7 +15,6 @@ public class PhotonRoomList : MonoBehaviourPunCallbacks
     {
         foreach (var room in roomList)
         {
-            Debug.LogError(room.Name);
             if (room.RemovedFromList)
             {
                 Destroy(roomsDisplay[room.Name].gameObject);
