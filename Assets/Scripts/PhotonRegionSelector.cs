@@ -48,6 +48,7 @@ public class PhotonRegionSelector : MonoBehaviour
 
         dropdown.options = options;
         dropdown.value = GetRegionIndex(PhotonNetwork.CloudRegion);
+        dropdown.onValueChanged.AddListener(SetRegion);
     }
 
     public void SetRegion(int index)
