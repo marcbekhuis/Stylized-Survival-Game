@@ -13,6 +13,7 @@ public class PlayerMovement : CharacterMovement
         if (!photonView.IsMine) return;
         base.Update();
         Movement();
+        photonView.RPC("RPCSyncPosition", RpcTarget.Others);
     }
 
     private void Movement()
@@ -30,5 +31,11 @@ public class PlayerMovement : CharacterMovement
             movementDirection += Vector3.up;
 
         characterController.Move(movementDirection * Time.deltaTime);
+    }
+
+    [PunRPC]
+    private void RPCSyncPosition(Vector3 position)
+    {
+        transform.position = position;
     }
 }
