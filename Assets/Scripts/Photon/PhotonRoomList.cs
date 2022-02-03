@@ -21,7 +21,7 @@ public class PhotonRoomList : MonoBehaviourPunCallbacks
                 RoomDisplay roomDisplay = Instantiate(roomDisplayPrefab, roomDisplayParent);
                 roomDisplay.GetComponent<RoomDisplay>().Setup(room);
                 roomsDisplay.Add(room.Name, roomDisplay);
-                roomDisplay.gameObject.SetActive(!room.IsOpen || !room.IsVisible);
+                roomDisplay.gameObject.SetActive(room.IsOpen || room.IsVisible);
             }
             else if (room.RemovedFromList)
             {
@@ -31,7 +31,7 @@ public class PhotonRoomList : MonoBehaviourPunCallbacks
             else
             {
                 roomsDisplay[room.Name].UpdateInfo(room);
-                roomsDisplay[room.Name].gameObject.SetActive(!room.IsOpen || !room.IsVisible);
+                roomsDisplay[room.Name].gameObject.SetActive(room.IsOpen || room.IsVisible);
             }
         }
     }
