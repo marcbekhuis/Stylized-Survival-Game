@@ -18,6 +18,7 @@ public class PlayerMovement : CharacterMovement
         Movement();
         YawRotation();
         photonView.RPC("RPCSyncPosition", RpcTarget.Others, transform.position);
+        photonView.RPC("RPCSyncRotation", RpcTarget.Others, transform.rotation);
     }
 
     private void YawRotation()
@@ -46,5 +47,11 @@ public class PlayerMovement : CharacterMovement
     private void RPCSyncPosition(Vector3 position)
     {
         transform.position = position;
+    }
+
+    [PunRPC]
+    private void RPCSyncRotation(Quaternion rotation)
+    {
+        transform.rotation = rotation;
     }
 }

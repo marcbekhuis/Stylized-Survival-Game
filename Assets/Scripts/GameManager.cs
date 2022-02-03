@@ -29,7 +29,16 @@ public class GameManager : MonoBehaviourPunCallbacks
         Vector3 spawnPoint = Vector3.zero;
 
         if (spawnPoints.Length > 0)
-            spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)].position;
+        {
+            List<Transform> availableSpawnPoints = new List<Transform>();
+            foreach (var point in spawnPoints)
+            {
+                if (!Physics.CheckSphere(point.position, 0.1f))
+                    availableSpawnPoints.Add(point);
+            }
+            if(availableSpawnPoints.Count > 0)
+                spawnPoint = availableSpawnPoints[Random.Range(0, availableSpawnPoints.Count)].position;
+        }
 
         PhotonNetwork.Instantiate(playerPrefab, spawnPoint, new Quaternion(0,0,0,0));
     }
