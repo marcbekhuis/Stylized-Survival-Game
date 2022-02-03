@@ -13,7 +13,7 @@ public class PlayerMovement : CharacterMovement
         if (!photonView.IsMine) return;
         base.Update();
         Movement();
-        photonView.RPC("RPCSyncPosition", RpcTarget.Others);
+        photonView.RPC("RPCSyncPosition", RpcTarget.Others, transform.position);
     }
 
     private void Movement()
