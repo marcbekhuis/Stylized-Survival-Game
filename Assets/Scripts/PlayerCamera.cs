@@ -24,6 +24,7 @@ public class PlayerCamera : MonoBehaviourPun
 
     private void Update()
     {
+        if (GameManager.instance.playerGameInputBlocked) return;
         currentAngle = Mathf.Clamp(currentAngle + Input.GetAxis("Mouse Y") * rotationSpeed * Time.deltaTime, minAngle, maxAngle);
         transform.localEulerAngles = new Vector3(currentAngle, 0, 0);
     }

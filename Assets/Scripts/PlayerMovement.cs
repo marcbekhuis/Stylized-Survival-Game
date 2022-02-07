@@ -7,16 +7,28 @@ using Photon.Realtime;
 public class PlayerMovement : CharacterMovement
 {
     [SerializeField] private float speed = 10;
-    [SerializeField] private float jumpHeight = 10;
+    [SerializeField] private float jumpSpeed = 10;
+    [SerializeField] private float jumpDuration = 10;
     [SerializeField] private float rotationSpeed = 1;
+
+    private bool jump = false;
+    private bool Jump { get => jump; set 
+        {
+            jump = value;
+            applyGravity = !value;
+        } 
+    }
 
     // Update is called once per frame
     protected override void Update()
     {
         if (!photonView.IsMine) return;
         base.Update();
-        Movement();
-        YawRotation();
+        if (!GameManager.instance.playerGameInputBlocked)
+        {
+            Movement();
+            YawRotation();
+        }
         photonView.RPC("RPCSyncPosition", RpcTarget.Others, transform.position);
         photonView.RPC("RPCSyncRotation", RpcTarget.Others, transform.rotation);
     }
@@ -37,10 +49,21 @@ public class PlayerMovement : CharacterMovement
             movementDirection += Vector3.left * speed;
         if (Input.GetKey(KeyCode.D))
             movementDirection += Vector3.right * speed;
-        if (Input.GetKey(KeyCode.Space))
-            movementDirection += Vector3.up * jumpHeight;
+        if (Input.GetKey(KeyCode.Space) && characterController.isGrounded)
+            StartCoroutine(JumpEnum());
 
         characterController.Move(transform.rotation * movementDirection * Time.deltaTime);
+    }
+
+    private IEnumerator JumpEnum()
+    {
+        Jump = true;
+        for (float i = 0; i < jumpDuration; i += Time.deltaTime)
+        {
+            characterController.Move(transform.rotation * (Vector3.up * jumpSpeed) * Time.deltaTime);
+            yield return null;
+        }
+        Jump = false;
     }
 
     [PunRPC]

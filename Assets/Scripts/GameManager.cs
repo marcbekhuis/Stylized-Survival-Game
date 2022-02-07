@@ -6,9 +6,11 @@ using Photon.Pun;
 public class GameManager : MonoBehaviourPunCallbacks
 {
     [SerializeField] private float gravity = -10;
+    [SerializeField] private float gravityTimeMultiplier = 0.1f;
     [SerializeField] private string playerPrefab;
     [SerializeField] private Transform[] spawnPoints;
 
+    public bool playerGameInputBlocked = false;
     public static GameManager instance;
 
     protected void Awake()
@@ -22,7 +24,10 @@ public class GameManager : MonoBehaviourPunCallbacks
         SpawnPlayerCharacter();
     }
 
-    public Vector3 Gravity { get => Vector3.up * gravity * Time.deltaTime; }
+    public Vector3 Gravity(float time) 
+    { 
+        return Vector3.up * (gravity * (time * gravityTimeMultiplier)) * Time.deltaTime; 
+    }
 
     public void SpawnPlayerCharacter()
     {

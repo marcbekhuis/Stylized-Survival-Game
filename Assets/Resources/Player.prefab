@@ -305,7 +305,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  jumpHeight: 10
+  jumpSpeed: 10
+  jumpDuration: 0.1
   rotationSpeed: 100
 --- !u!114 &3598005031447745124
 MonoBehaviour:
