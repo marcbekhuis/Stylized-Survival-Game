@@ -320,6 +320,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   name: {fileID: 943934712139958777}
+  canvas: {fileID: 4192719135024180556}
 --- !u!114 &5236688368635161450
 MonoBehaviour:
   m_ObjectHideFlags: 0
