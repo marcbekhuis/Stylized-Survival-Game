@@ -12,13 +12,9 @@ public class LoginPhoton : MonoBehaviourPunCallbacks
     [SerializeField] private GameObject loginPanel;
     [SerializeField] private GameObject mainMenuPanel;
 
-    private void Start()
+    private new void OnEnable()
     {
-        if (!PhotonNetwork.IsConnected)
-        {
-            PhotonNetwork.GameVersion = Application.version;
-            PhotonNetwork.AutomaticallySyncScene = true;
-        }
+        base.OnEnable();
         mainMenuPanel.SetActive(PhotonNetwork.IsConnected);
         loginPanel.SetActive(!PhotonNetwork.IsConnected);
     }
