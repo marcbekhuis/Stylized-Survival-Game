@@ -23,7 +23,8 @@ public class Nametags : MonoBehaviourPun
 
     private void Update()
     {
-        canvas.transform.LookAt(Camera.main.transform);
+        Debug.LogError(Camera.current);
+        canvas.transform.LookAt(Camera.current.transform);
         canvas.transform.Rotate(new Vector3(180, 0, 0));
     }
 }
