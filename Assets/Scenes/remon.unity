@@ -290,6 +290,9 @@ GameObject:
   - component: {fileID: 506522002}
   - component: {fileID: 506522001}
   - component: {fileID: 506522000}
+  - component: {fileID: 506522004}
+  - component: {fileID: 506522006}
+  - component: {fileID: 506522005}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -375,6 +378,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!143 &506522004
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506521999}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 2
+  m_Radius: 0.5
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &506522005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506521999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da2c76a04c72ea24aa84cfdf17c4b8e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sc: {fileID: 0}
+--- !u!135 &506522006
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506521999}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &663713046
 GameObject:
   m_ObjectHideFlags: 0
@@ -764,6 +811,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3089989192194504417, guid: c3e5335d982744d40937eaec947bf45c,
+        type: 3}
+      propertyPath: jumpSpeed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3089989192194504417, guid: c3e5335d982744d40937eaec947bf45c,
+        type: 3}
+      propertyPath: jumpDuration
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3598005031447745124, guid: c3e5335d982744d40937eaec947bf45c,
         type: 3}
       propertyPath: cube
@@ -998,8 +1055,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravity: -10
+  gravityTimeMultiplier: 0.1
   playerPrefab: Player
   spawnPoints:
   - {fileID: 1116394928}
   - {fileID: 663713047}
   - {fileID: 996822228}
+  displayVariables: {fileID: 0}
+  inventoryOpen: 0
+  playerPaused: 0

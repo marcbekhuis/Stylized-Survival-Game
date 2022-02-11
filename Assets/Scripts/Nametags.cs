@@ -8,6 +8,7 @@ public class Nametags : MonoBehaviourPun
 {
     [SerializeField] private Text name;
     [SerializeField] private GameObject canvas;
+    [SerializeField] private Transform camera;
 
 
     // Start is called before the first frame update
@@ -19,12 +20,15 @@ public class Nametags : MonoBehaviourPun
             Destroy(canvas);
             Destroy(this);
         }
+        else
+        {
+            camera = GameObject.FindObjectOfType<Camera>().transform;
+        }
     }
 
     private void Update()
     {
-        Debug.LogError(Camera.current);
-        canvas.transform.LookAt(Camera.current.transform);
+        canvas.transform.LookAt(camera);
         canvas.transform.Rotate(new Vector3(0, 180, 0));
     }
 }
