@@ -9,8 +9,11 @@ public class GameManager : MonoBehaviourPunCallbacks
     [SerializeField] private float gravityTimeMultiplier = 0.1f;
     [SerializeField] private string playerPrefab;
     [SerializeField] private Transform[] spawnPoints;
+    [SerializeField] private SetInventoryDisplayVariables displayVariables;
 
-    public bool playerGameInputBlocked = false;
+    public bool inventoryOpen = false;
+    public bool playerPaused = false;
+    public bool playerGameInputBlocked { get => inventoryOpen || playerPaused; }
     public static GameManager instance;
 
     protected void Awake()
@@ -45,6 +48,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                 spawnPoint = availableSpawnPoints[Random.Range(0, availableSpawnPoints.Count)].position;
         }
 
-        PhotonNetwork.Instantiate(playerPrefab, spawnPoint, new Quaternion(0,0,0,0));
+        GameObject player = PhotonNetwork.Instantiate(playerPrefab, spawnPoint, new Quaternion(0,0,0,0));
+        displayVariables.SetVariable(player);
     }
 }

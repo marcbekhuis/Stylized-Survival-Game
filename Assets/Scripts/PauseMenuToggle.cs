@@ -8,13 +8,13 @@ public class PauseMenuToggle : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.P))
+        if (InputManager.instance.GetKeyDown(InputActions.Pause))
         {
             pauseMenu.SetActive(!pauseMenu.activeSelf);
             if(pauseMenu.activeSelf) Cursor.lockState = CursorLockMode.None;
             else Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = pauseMenu.activeSelf;
-            GameManager.instance.playerGameInputBlocked = pauseMenu.activeSelf;
+            GameManager.instance.playerPaused = pauseMenu.activeSelf;
         }
     }
 }
