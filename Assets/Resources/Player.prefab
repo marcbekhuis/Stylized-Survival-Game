@@ -310,6 +310,11 @@ MonoBehaviour:
   jumpSpeed: 30
   jumpDuration: 0.1
   rotationSpeed: 100
+  groundCheckOffset: {x: 0, y: 0, z: 0}
+  groundCheckSize: {x: 0.4, y: 0.1, z: 0.4}
+  groundCheckMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &3598005031447745124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,7 +393,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sizeVar: {x: 9, y: 1}
   startingItems: []
-  inputActions: 
+  inputActions: 090000000a0000000b0000000c0000000d0000000e0000000f0000001000000011000000
   index2d: {x: 0, y: 0}
   index: 0
 --- !u!1 &6314180672762509303

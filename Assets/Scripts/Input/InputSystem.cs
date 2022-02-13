@@ -10,6 +10,7 @@ public class InputSystem
         { InputActions.MoveBackward, new List<KeyCode>{KeyCode.S, KeyCode.DownArrow}},
         { InputActions.MoveLeft, new List<KeyCode>{KeyCode.A, KeyCode.LeftArrow}},
         { InputActions.MoveRight, new List<KeyCode>{KeyCode.D, KeyCode.RightArrow}},
+        { InputActions.Jump, new List<KeyCode>{KeyCode.Space}},
         { InputActions.Sprint, new List<KeyCode>{KeyCode.LeftShift, KeyCode.RightShift}},
         { InputActions.UseTool, new List<KeyCode>{KeyCode.Mouse0}},
         { InputActions.DropItem, new List<KeyCode>{KeyCode.Q}},

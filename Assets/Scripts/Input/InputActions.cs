@@ -8,6 +8,7 @@ public enum InputActions
     MoveBackward,
     MoveLeft,
     MoveRight,
+    Jump,
     Sprint,
     UseTool,
     DropItem,
