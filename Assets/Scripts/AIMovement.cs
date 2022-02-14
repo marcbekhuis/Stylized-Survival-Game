@@ -5,28 +5,26 @@ using UnityEngine.AI;
 [RequireComponent(typeof(SphereCollider))]
 public class AIMovement : CharacterMovement
 {
-    [SerializeField] public SphereCollider sc;
+    [SerializeField] private SphereCollider sc;
     public Transform target;
     private NavMeshPath path;
+    [SerializeField] private float colliderRadius;
     // Start is called before the first frame update
     void Start()
     {
         sc = this.GetComponent<SphereCollider>();
-        sc.radius = 3;
-        sc.isTrigger = true;
+        sc.radius = colliderRadius;
         path = new NavMeshPath();
     }
 
     void Update()
     {
+        base.Update();
         NavMesh.CalculatePath(transform.position, target.position, NavMesh.AllAreas, path);
-    
-        for (int i = 0; i < path.corners.Length - 1; i++)
-        {
-            Debug.Log(path.corners[i + 1]);
-            characterController.transform.position = path.corners[i + 1];
-        }
-        Debug.Log(characterController);
+
+        transform.LookAt(path.corners[1]);
+        characterController.Move(transform.rotation * Vector3.forward * speed * Time.deltaTime);
+        base.AfterUpdate();
     }
 
     private void OnTriggerStay(Collider other)
