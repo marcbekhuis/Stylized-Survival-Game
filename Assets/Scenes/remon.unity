@@ -1423,9 +1423,9 @@ MonoBehaviour:
     m_Bits: 64
   sc: {fileID: 0}
   target: {fileID: 0}
-  point: {fileID: 2066923860}
-  randomPos: {x: 0, y: 0, z: 0}
   range: 10
+  timer: 10
+  point: {x: 0, y: 0, z: 0}
   colliderRadius: 6
 --- !u!135 &1125843669
 SphereCollider:
