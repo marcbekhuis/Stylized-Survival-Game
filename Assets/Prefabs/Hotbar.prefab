@@ -114,8 +114,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cbf01d28966d2b41b3bef6ad2a963de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: {fileID: 0}
-  itemContainerPrefab: {fileID: 5169219559322595997, guid: e24a8402a78379f42975bda9521e3d19, type: 3}
+  itemContainerPrefab: {fileID: 5169219559322595997, guid: e24a8402a78379f42975bda9521e3d19,
+    type: 3}
   itemContainerParent: {fileID: 7031254953162476667}
   movableContainers: 0
   hotbarInventory: {fileID: 0}

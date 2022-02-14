@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     [SerializeField] private float gravity = -10;
     [SerializeField] private float gravityTimeMultiplier = 0.1f;
     [SerializeField] private string playerPrefab;
-    [SerializeField] private Transform[] spawnPoints;
+    [SerializeField] private Transform spawnPoints;
     [SerializeField] private SetInventoryDisplayVariables displayVariables;
 
     public bool inventoryOpen = false;
@@ -36,10 +36,10 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         Vector3 spawnPoint = Vector3.zero;
 
-        if (spawnPoints.Length > 0)
+        if (spawnPoints.childCount > 0)
         {
             List<Transform> availableSpawnPoints = new List<Transform>();
-            foreach (var point in spawnPoints)
+            foreach (Transform point in spawnPoints)
             {
                 if (!Physics.CheckSphere(point.position, 0.1f))
                     availableSpawnPoints.Add(point);

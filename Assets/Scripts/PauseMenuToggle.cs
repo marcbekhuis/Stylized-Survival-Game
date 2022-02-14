@@ -17,4 +17,12 @@ public class PauseMenuToggle : MonoBehaviour
             GameManager.instance.playerPaused = pauseMenu.activeSelf;
         }
     }
+
+    public void ClosePauseMenu()
+    {
+        pauseMenu.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        GameManager.instance.playerPaused = false;
+    }
 }

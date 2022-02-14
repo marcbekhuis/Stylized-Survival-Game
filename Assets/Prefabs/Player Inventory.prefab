@@ -192,8 +192,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 312158bb522af12429a7389a5cfc0cf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: {fileID: 0}
-  itemContainerPrefab: {fileID: 5169219559322595997, guid: e24a8402a78379f42975bda9521e3d19, type: 3}
+  itemContainerPrefab: {fileID: 5169219559322595997, guid: e24a8402a78379f42975bda9521e3d19,
+    type: 3}
   itemContainerParent: {fileID: 4190418967623177792}
   movableContainers: 1
 --- !u!114 &4190418967848644458
@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 312158bb522af12429a7389a5cfc0cf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: {fileID: 0}
-  itemContainerPrefab: {fileID: 5169219559322595997, guid: e24a8402a78379f42975bda9521e3d19, type: 3}
+  itemContainerPrefab: {fileID: 5169219559322595997, guid: e24a8402a78379f42975bda9521e3d19,
+    type: 3}
   itemContainerParent: {fileID: 4190418967623177792}
   movableContainers: 1

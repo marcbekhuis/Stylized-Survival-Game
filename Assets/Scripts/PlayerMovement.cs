@@ -31,7 +31,7 @@ public class PlayerMovement : CharacterMovement
         movementDirection += Vector3.forward * InputManager.instance.GetAxis(InputAxis.Vertical) * speed;
         movementDirection += Vector3.right * InputManager.instance.GetAxis(InputAxis.Horizontal) * speed;
 
-        if (InputManager.instance.GetKey(InputActions.Jump) && base.GroundCheck())
+        if (InputManager.instance.GetKey(InputActions.Jump))
             Jump();
 
         characterController.Move(transform.rotation * movementDirection * Time.deltaTime);

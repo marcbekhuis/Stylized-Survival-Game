@@ -60,11 +60,13 @@ public class CharacterMovement : MonoBehaviourPun
     protected void Jump()
     {
         if (jumping) return;
+        if (!GroundCheck()) return;
         StartCoroutine(JumpEnum());
     }
 
     protected IEnumerator JumpEnum()
     {
+        airTime = 0;
         jumping = true;
         applyGravity = false;
         for (float i = 0; i < jumpDuration; i += Time.deltaTime)

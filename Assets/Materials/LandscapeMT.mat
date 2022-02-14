@@ -38,19 +38,47 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Beach:
-        m_Texture: {fileID: 2800000, guid: 3e8f839d23c8c7f42b81fc76f0dbeb9f, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5c38e2edb8ae412468d3186b2e38caf1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BeachMask:
-        m_Texture: {fileID: 2800000, guid: b3f9fed74fb5f1c4ea4fe5b062c3b953, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8e69267f2b485d64888ed6794e2b8cc5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BeachNormal:
-        m_Texture: {fileID: 2800000, guid: 5e37c3c51ec3421489551038ec791a0e, type: 3}
+        m_Texture: {fileID: 2800000, guid: 32e75137122e86e419af0c829889e58c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BeachOcclusion:
+        m_Texture: {fileID: 2800000, guid: 966c780cdfe66c2438105f8c119bfdd1, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BeachRoughness:
+        m_Texture: {fileID: 2800000, guid: 164cdba750466df4dbaa35a21d706118, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Cliff:
+        m_Texture: {fileID: 2800000, guid: 91e362541b37fe947a8296386e22344f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CliffMask:
+        m_Texture: {fileID: 2800000, guid: 427495e37c2c5dd49a6fb941458d2a1b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CliffNormal:
+        m_Texture: {fileID: 2800000, guid: f7627922db039884e849d99b8aaf3e92, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CliffOcclusion:
+        m_Texture: {fileID: 2800000, guid: 120a30f02d4a4654e8aa69ccabedeb3d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CliffRoughness:
+        m_Texture: {fileID: 2800000, guid: 1446785b5ae3f274eb68fa98f44389d8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -70,7 +98,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Grass:
-        m_Texture: {fileID: 2800000, guid: 85cdb49f460bbf14a82b8ea1c20c07bc, type: 3}
+        m_Texture: {fileID: 2800000, guid: 819311b7a66a8f740b104cf9f9ffadf5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _GrassMask:
@@ -78,7 +106,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _GrassNormal:
-        m_Texture: {fileID: 2800000, guid: c8349fddcac7e9d499d9aac664a14870, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8b6ec8cd3adbc7a45a52309309dff911, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _GrassOcclusion:
+        m_Texture: {fileID: 2800000, guid: 438719456ebb7dc44b22000c4571a4ea, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _GrassRoughness:
+        m_Texture: {fileID: 2800000, guid: 8e04de8547435554b8c484ffb2af8cab, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -98,18 +134,22 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Rock:
-        m_Texture: {fileID: 2800000, guid: 39e424b8c7b659e4d8c792f40deccbf2, type: 3}
+        m_Texture: {fileID: 2800000, guid: 91e362541b37fe947a8296386e22344f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RockMask:
-        m_Texture: {fileID: 2800000, guid: 832a95b3f67bea74b941f33cce3a7651, type: 3}
+        m_Texture: {fileID: 2800000, guid: 427495e37c2c5dd49a6fb941458d2a1b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _RockNormal:
-        m_Texture: {fileID: 2800000, guid: 52854a4610d9acc47a31d9590fe9620d, type: 3}
+        m_Texture: {fileID: 2800000, guid: f7627922db039884e849d99b8aaf3e92, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2D_Array:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -142,7 +182,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Landscape_Size: 1000
+    - _Landscape_Size: 2000
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
