@@ -7,6 +7,7 @@ public class ResourceSpawnerEditor : MonoBehaviour
 {
     [SerializeField] private bool replaceResources = false;
     [SerializeField] private float minRadius = 1;
+    [SerializeField][Range(0, 90)] private float maxAngle = 0.3f;
     [SerializeField] private int numberOfResources = 1000;
     [SerializeField] private Vector2 randomSizeRange = new Vector2(0.5f, 1.5f);
     [SerializeField] private Vector2 resourceFieldX = new Vector2(-1000, 1000);
@@ -16,16 +17,13 @@ public class ResourceSpawnerEditor : MonoBehaviour
     [SerializeField] private GameObject[] resourcePrefabs;
     [SerializeField] LayerMask hitTarget;
 
-    private List<GameObject> placedResources = new List<GameObject>();
-
     // Update is called once per frame
     void Update()
     {
         if (!replaceResources) return;
-        while(placedResources.Count > 0)
+        foreach (Transform resource in this.transform)
         {
-            DestroyImmediate(placedResources[0]);
-            placedResources.RemoveAt(0);
+            DestroyImmediate(resource.gameObject);
         }
 
         for (int i = 0; i < numberOfResources; i++)
@@ -41,8 +39,9 @@ public class ResourceSpawnerEditor : MonoBehaviour
         RaycastHit[] hits = Physics.RaycastAll(new Vector3(positionNoHeight.x, 600, positionNoHeight.y), Vector3.down, 600, hitTarget);
         if (hits.Length <= 0) return false; 
         Vector3 position = hits[0].point;
+        if (hits[0].normal.y < (maxAngle / 90)) return false;
 
-        foreach (var resource in placedResources)
+        foreach (Transform resource in this.transform)
         {
             if (Vector3.Distance(position, resource.transform.position) < minRadius) return false;
         }
@@ -50,7 +49,6 @@ public class ResourceSpawnerEditor : MonoBehaviour
         GameObject placedResource = Instantiate(resourcePrefabs[Random.Range(0, resourcePrefabs.Length)], position, new Quaternion(0,0,0,0), this.transform);
         placedResource.transform.localScale = Vector3.one * Random.Range(randomSizeRange.x, randomSizeRange.y);
         placedResource.transform.eulerAngles = new Vector3(0, Random.Range(0f, 360f), 0);
-        placedResources.Add(placedResource);
         return true;
     }
 }

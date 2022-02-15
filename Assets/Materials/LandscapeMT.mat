@@ -168,11 +168,12 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaClip: 0
-    - _BeachHeight: 0.21
+    - _BeachHeight: 0
     - _Blend: 0
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
+    - _CliffSlope: 45
     - _Cull: 2
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
