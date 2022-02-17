@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class HotbarInventory : Inventory
 {
+    [SerializeField] private InputActions primairyAction;
+    [SerializeField] private InputActions secondairyAction;
     [SerializeField] private InputActions[] inputActions;
+    [SerializeField] private Transform itemTransform;
 
     public Item selectedItem
     {
@@ -17,14 +20,29 @@ public class HotbarInventory : Inventory
     private new void Start()
     {
         base.Start();
-        //SelectItem();
+        SelectItem(false);
     }
 
     private void Update()
     {
         if (!photonView.IsMine) return;
         if (GameManager.instance.inventoryOpen) return;
-        
+
+        if (InputManager.instance.GetKeyDown(primairyAction))
+        {
+            if(selectedItem.TryGetType<UseableItem>(out UseableItem item))
+            {
+                item.UsePrimairy(transform,itemTransform);
+            }
+        }
+        if (InputManager.instance.GetKeyDown(secondairyAction))
+        {
+            if (selectedItem.TryGetType<UseableItem>(out UseableItem item))
+            {
+                item.UseSecondairy(transform, itemTransform);
+            }
+        }
+
         for (int i = 0; i < inputActions.Length; i++)
         {
             if (InputManager.instance.GetKeyDown(inputActions[i]))
@@ -43,6 +61,10 @@ public class HotbarInventory : Inventory
     {
         if (selectedItem)
         {
+            if (selectedItem.TryGetType<UseableItem>(out UseableItem item))
+            {
+                item.Deselect(transform, itemTransform);
+            }
         }
     }
 
@@ -58,10 +80,17 @@ public class HotbarInventory : Inventory
         index = i;
     }
 
-    public void SelectItem()
+    public void SelectItem(bool triggerSelect = true)
     {
         if (selectedItem)
         {
+            if (triggerSelect)
+            {
+                if (selectedItem.TryGetType<UseableItem>(out UseableItem item))
+                {
+                    item.Select(transform, transform);
+                }
+            }
         }
     }
 

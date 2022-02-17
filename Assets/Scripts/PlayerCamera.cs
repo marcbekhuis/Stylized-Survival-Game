@@ -9,6 +9,7 @@ public class PlayerCamera : MonoBehaviourPun
     [SerializeField] private float minAngle = -40;
     [SerializeField] private float maxAngle = 80;
     public static PlayerCamera instance;
+    public new Camera camera;
 
     private float currentAngle = 0;
 
@@ -16,6 +17,7 @@ public class PlayerCamera : MonoBehaviourPun
     {
         if (!photonView.IsMine) Destroy(this.gameObject);
         else instance = this;
+        camera = GetComponent<Camera>();
     }
 
     private void Start()

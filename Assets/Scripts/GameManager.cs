@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviourPunCallbacks
     public bool playerGameInputBlocked { get => inventoryOpen || playerPaused; }
     public static GameManager instance;
 
+    public float gameTime = 0;
+
     protected void Awake()
     {
         if (instance) Destroy(this);
@@ -25,6 +27,19 @@ public class GameManager : MonoBehaviourPunCallbacks
     private void Start()
     {
         SpawnPlayerCharacter();
+    }
+
+    private void Update()
+    {
+        if (!photonView.IsMine) return;
+        gameTime += Time.deltaTime;
+        photonView.RPC("RPCSyncTime", RpcTarget.Others, gameTime);
+    }
+
+    [PunRPC]
+    private void RPCSyncTime(float time)
+    {
+        gameTime = time;
     }
 
     public Vector3 Gravity(float time) 

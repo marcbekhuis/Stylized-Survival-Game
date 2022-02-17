@@ -51,16 +51,16 @@ public class ItemDisplay : MonoBehaviour
             amountText.gameObject.SetActive(true);
         }
         iconImage.sprite = item.icon;
-        //if (item.IsType<Durability>())
-        //{
-        //    Durability durability = item.GetType<Durability>();
-        //    UpdateDurabilityBar(durability.durability, durability.maxDurability);
-        //    durability.OnValueChanged += UpdateDurabilityBar;
-        //}
-        //else
-        //{
+        if (item.IsType<DurabilityItem>())
+        {
+            DurabilityItem durability = item.GetType<DurabilityItem>();
+            UpdateDurabilityBar(durability.Durability, durability.maxDurability);
+            durability.onDurabilityChanged += UpdateDurabilityBar;
+        }
+        else
+        {
             durabilityBar.gameObject.SetActive(false);
-        //}
+        }
     }
 
     public bool MouseOver(out Item item)

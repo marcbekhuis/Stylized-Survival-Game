@@ -68,4 +68,18 @@ public class Item : ScriptableObject
             return false;
         }
     }
+
+    public bool TryGetType<T>(out T type) where T : Item
+    {
+        try
+        {
+            type = (T)this;
+            return true;
+        }
+        catch
+        {
+            type = null;
+            return false;
+        }
+    }
 }
