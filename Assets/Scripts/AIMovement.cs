@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections;
 [RequireComponent(typeof(SphereCollider))]
 public class AIMovement : CharacterMovement
 {
@@ -7,6 +8,7 @@ public class AIMovement : CharacterMovement
     [SerializeField] private Transform target;
     [SerializeField] private float range = 10.0f;
     [SerializeField] private float timer = 10.0f;
+    [SerializeField] private float acceptanceRange = 1f;
     [SerializeField] private Vector3 point;
     private NavMeshPath path;
 
@@ -18,13 +20,14 @@ public class AIMovement : CharacterMovement
         //point = this.transform.GetChild(0).gameObject;
         sc.radius = colliderRadius;
         path = new NavMeshPath();
+        lookAtPoint();
     }
 
     bool RandomPoint(Vector3 center, float range, out Vector3 result)
     {
         Vector3 randomPoint = center + Random.insideUnitSphere * range;
         NavMeshHit hit;
-        if (NavMesh.SamplePosition(randomPoint, out hit, 1.0f, NavMesh.AllAreas))
+        if (NavMesh.SamplePosition(randomPoint, out hit, 10, NavMesh.AllAreas))
         {
             result = hit.position;
             return true;
@@ -36,23 +39,21 @@ public class AIMovement : CharacterMovement
     void Update()
     {
         base.Update();
-        timer -= Time.deltaTime;
+
         if (target != null)
         {
             NavMesh.CalculatePath(transform.position, target.position, NavMesh.AllAreas, path);
             transform.LookAt(path.corners[1]);
-            characterController.Move(transform.rotation * Vector3.forward * speed * Time.deltaTime);
         }
-        if (target == null)
+        else
         {
-            //if (RandomPoint(transform.position, range, out point))
-            //{
-            //    Debug.DrawRay(point, Vector3.up, Color.blue, 10.0f);
-            //    transform.LookAt(point);
-            //}
-            characterController.Move(transform.rotation * Vector3.forward * speed * Time.deltaTime);
+            if(Vector3.Distance(point, transform.position) < acceptanceRange)
+            {
+                lookAtPoint();
+            }
         }
-
+        characterController.Move(transform.rotation * Vector3.forward * speed * Time.deltaTime);
+        
         base.AfterUpdate();
     }
 
@@ -67,5 +68,14 @@ public class AIMovement : CharacterMovement
     private void OnTriggerExit(Collider other)
     {
         target = null;
+        lookAtPoint();
+    }
+
+    private void lookAtPoint()
+    {
+        if (RandomPoint(transform.position, range, out point))
+        {
+            transform.LookAt(point);
+        }
     }
 }
