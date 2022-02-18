@@ -141,6 +141,7 @@ MonoBehaviour:
   target: {fileID: 0}
   range: 10
   timer: 10
+  acceptanceRange: 1
   point: {x: 0, y: 0, z: 0}
   colliderRadius: 6
 --- !u!143 &317443901949528541
@@ -180,7 +181,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents: []
-  sceneViewId: 1
+  sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!1 &317443902522970859
