@@ -11,7 +11,7 @@ public class Weapon : UseableItem
     public float cooldown = 1;
     public LayerMask targetLayer;
 
-    private float cooldownTime;
+    protected float cooldownTime;
 
     public Weapon(Weapon item, Inventory inventory, int amount = 1) : base(item, inventory, amount)
     {
@@ -35,18 +35,19 @@ public class Weapon : UseableItem
         return Physics.RaycastAll(playerCamera.position, playerCamera.rotation * Vector3.forward, range, targetLayer);
     }
 
-    public override void UsePrimairy(Transform userTransform, Transform itemTransform)
+    public override void UsePrimairy(Transform userTransform, Transform itemTransform, Inventory[] inventories)
     {
         if (GameManager.instance.gameTime < cooldownTime) return;
-
-        base.UsePrimairy(userTransform, itemTransform);
         cooldownTime = GameManager.instance.gameTime + cooldown;
+
+        base.UsePrimairy(userTransform, itemTransform, inventories);
+        
         foreach (var target in GetTargets())
         {
-            //if (target.transform.TryGetComponent<HealthSystem>())
-            //{
-
-            //}
+            if (target.transform.TryGetComponent<HealthSystem>(out HealthSystem healthSystem))
+            {
+                return;
+            }
         }
     }
 }

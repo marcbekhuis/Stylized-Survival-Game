@@ -36,7 +36,7 @@ public class ResourceSpawnerEditor : MonoBehaviour
     private bool PlaceResource()
     {
         Vector2 positionNoHeight = new Vector2(Random.Range(resourceFieldX.x, resourceFieldX.y), Random.Range(resourceFieldZ.x, resourceFieldZ.y));
-        RaycastHit[] hits = Physics.RaycastAll(new Vector3(positionNoHeight.x, 600, positionNoHeight.y), Vector3.down, 600, hitTarget);
+        RaycastHit[] hits = Physics.RaycastAll(new Vector3(positionNoHeight.x, maxPlacementHeight, positionNoHeight.y), Vector3.down, maxPlacementHeight - minPlacementHeight, hitTarget);
         if (hits.Length <= 0) return false; 
         Vector3 position = hits[0].point;
         if (position.y < minPlacementHeight) return false;

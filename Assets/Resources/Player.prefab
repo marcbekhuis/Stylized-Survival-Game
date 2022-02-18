@@ -134,6 +134,7 @@ MonoBehaviour:
   rotationSpeed: 100
   minAngle: -80
   maxAngle: 40
+  camera: {fileID: 0}
 --- !u!1 &4192719135024180556
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,7 +394,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sizeVar: {x: 9, y: 1}
   startingItems: []
+  primairyAction: 0
+  secondairyAction: 0
   inputActions: 0a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000
+  itemTransform: {fileID: 0}
   index2d: {x: 0, y: 0}
   index: 0
 --- !u!1 &6314180672762509303

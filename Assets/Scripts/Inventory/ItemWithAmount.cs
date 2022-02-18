@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class StartingItem
+public class ItemWithAmount
 {
     public Item item;
     [SerializeField] public int amount = 1;

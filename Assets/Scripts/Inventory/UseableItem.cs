@@ -19,22 +19,42 @@ public class UseableItem : DurabilityItem
     {
     }
 
-    public virtual void Select(Transform userTransform, Transform itemTransform)
+    public virtual void Select(Transform userTransform, Transform itemTransform, Inventory[] inventories)
+    {
+        OnItemSelected();
+    }
+
+    protected void OnItemSelected()
     {
         onItemSelected(this);
     }
 
-    public virtual void Deselect(Transform userTransform, Transform itemTransform)
+    public virtual void Deselect(Transform userTransform, Transform itemTransform, Inventory[] inventories)
+    {
+        OnItemDeselected();
+    }
+
+    protected void OnItemDeselected()
     {
         onItemDeselected(this);
     }
 
-    public virtual void UsePrimairy(Transform userTransform, Transform itemTransform)
+    public virtual void UsePrimairy(Transform userTransform, Transform itemTransform, Inventory[] inventories)
+    {
+        OnItemUsePrimairy();
+    }
+
+    protected void OnItemUsePrimairy()
     {
         onItemUsePrimairy(this);
     }
 
-    public virtual void UseSecondairy(Transform userTransform, Transform itemTransform)
+    public virtual void UseSecondairy(Transform userTransform, Transform itemTransform, Inventory[] inventories)
+    {
+        onItemUseSecundairy(this);
+    }
+
+    protected void OnItemUseSecundairy()
     {
         onItemUseSecundairy(this);
     }

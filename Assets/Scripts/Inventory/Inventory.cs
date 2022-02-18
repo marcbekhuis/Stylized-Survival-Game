@@ -11,7 +11,7 @@ public class Inventory : MonoBehaviourPun
     [HideInInspector] public Item[,] slots;
 
     [Min(1)][SerializeField] private Vector2Int sizeVar = new Vector2Int(1,1);
-    [SerializeField] private StartingItem[] startingItems;
+    [SerializeField] private ItemWithAmount[] startingItems;
 
     protected void Start()
     {

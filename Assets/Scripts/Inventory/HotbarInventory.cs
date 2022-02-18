@@ -32,14 +32,14 @@ public class HotbarInventory : Inventory
         {
             if(selectedItem.TryGetType<UseableItem>(out UseableItem item))
             {
-                item.UsePrimairy(transform,itemTransform);
+                item.UsePrimairy(transform,itemTransform, new Inventory[] { this });
             }
         }
         if (InputManager.instance.GetKeyDown(secondairyAction))
         {
             if (selectedItem.TryGetType<UseableItem>(out UseableItem item))
             {
-                item.UseSecondairy(transform, itemTransform);
+                item.UseSecondairy(transform, itemTransform, new Inventory[] {this });
             }
         }
 
@@ -63,7 +63,7 @@ public class HotbarInventory : Inventory
         {
             if (selectedItem.TryGetType<UseableItem>(out UseableItem item))
             {
-                item.Deselect(transform, itemTransform);
+                item.Deselect(transform, itemTransform, new Inventory[] { this });
             }
         }
     }
@@ -88,7 +88,7 @@ public class HotbarInventory : Inventory
             {
                 if (selectedItem.TryGetType<UseableItem>(out UseableItem item))
                 {
-                    item.Select(transform, transform);
+                    item.Select(transform, transform, new Inventory[] { this });
                 }
             }
         }
