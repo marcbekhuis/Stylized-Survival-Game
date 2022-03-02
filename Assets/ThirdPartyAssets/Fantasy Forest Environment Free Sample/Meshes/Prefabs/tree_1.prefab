@@ -174,8 +174,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffb6bc4279b83574fb7fe6818ca16015, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  resourceType: 1
+  items:
+  - item: {fileID: 11400000, guid: 979f52c994a792448b37783ce1c7ae0e, type: 2}
+    amount: 3
   maxGrowSize: 2
   growDuration: 60
+  respawnCooldown: 10
 --- !u!1 &1244885105455798
 GameObject:
   m_ObjectHideFlags: 0

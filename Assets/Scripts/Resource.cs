@@ -69,7 +69,7 @@ public class Resource : MonoBehaviour
         }
         foreach (Transform lod in transform)
         {
-            lod.gameObject.SetActive(true);
+            lod.gameObject.SetActive(false);
         }
         collider.enabled = true;
         destroyed = true;

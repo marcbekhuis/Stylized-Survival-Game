@@ -29,6 +29,13 @@ public class Weapon : UseableItem
         cooldownTime = GameManager.instance.gameTime;
     }
 
+    public override Item Create(Item item, Inventory inventory, int amount = 1)
+    {
+        Item newItem = new Weapon((Weapon)item, inventory, amount);
+        newItem.name = this.name;
+        return newItem;
+    }
+
     protected RaycastHit[] GetTargets()
     {
         Transform playerCamera = PlayerCamera.instance.transform;

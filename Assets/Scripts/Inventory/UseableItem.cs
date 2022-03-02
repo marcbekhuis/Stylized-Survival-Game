@@ -19,6 +19,13 @@ public class UseableItem : DurabilityItem
     {
     }
 
+    public override Item Create(Item item, Inventory inventory, int amount = 1)
+    {
+        Item newItem = new UseableItem((UseableItem)item, inventory, amount);
+        newItem.name = this.name;
+        return newItem;
+    }
+
     public virtual void Select(Transform userTransform, Transform itemTransform, Inventory[] inventories)
     {
         OnItemSelected();

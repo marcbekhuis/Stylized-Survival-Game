@@ -14,7 +14,7 @@ public class SetInventoryDisplayVariables : MonoBehaviour
     {
         Inventory inventory = player.GetComponent<Inventory>();
         HotbarInventory hotbarInventory = player.GetComponent<HotbarInventory>();
-        player.GetComponent<HealthSystem>().onHealthChanged += healthUI.updateHealth;
+        //player.GetComponent<HealthSystem>().onHealthChanged += healthUI.updateHealth;
 
 
         hotbarDisplay.hotbarInventory = hotbarInventory;

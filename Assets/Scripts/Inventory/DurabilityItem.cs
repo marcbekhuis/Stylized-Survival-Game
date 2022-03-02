@@ -15,14 +15,21 @@ public class DurabilityItem : Item
 
     public DurabilityItem(DurabilityItem item, Inventory inventory, int amount = 1) : base(item, inventory, amount)
     {
-        this.durability = item.durability;
+        this.durability = item.maxDurability;
         this.maxDurability = item.maxDurability;
     }
 
     public DurabilityItem(float durability, float maxDurability, string description, float weight, int maxStack, Sprite icon, Sprite sprite, Inventory inventory, int amount = 1) : base(description, weight, maxStack, icon, sprite, inventory, amount)
     {
-        this.durability = durability;
+        this.durability = maxDurability;
         this.maxDurability = maxDurability;
+    }
+
+    public override Item Create(Item item, Inventory inventory, int amount = 1)
+    {
+        Item newItem = new DurabilityItem((DurabilityItem)item, inventory, amount);
+        newItem.name = this.name;
+        return newItem;
     }
 
     public float Durability 

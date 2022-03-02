@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 [CreateAssetMenu(fileName = "New item" , menuName = "Items/Item")]
 public class Item : ScriptableObject
@@ -58,28 +59,6 @@ public class Item : ScriptableObject
 
     public bool IsType<T>() where T : Item
     {
-        try
-        {
-            T type = (T)this;
-            return true;
-        }
-        catch
-        {
-            return false;
-        }
-    }
-
-    public bool TryGetType<T>(out T type) where T : Item
-    {
-        try
-        {
-            type = (T)this;
-            return true;
-        }
-        catch
-        {
-            type = null;
-            return false;
-        }
+        return (T)this;
     }
 }

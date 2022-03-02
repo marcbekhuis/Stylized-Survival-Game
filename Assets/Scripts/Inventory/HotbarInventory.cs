@@ -30,14 +30,16 @@ public class HotbarInventory : Inventory
 
         if (InputManager.instance.GetKeyDown(primairyAction))
         {
-            if(selectedItem.TryGetType<UseableItem>(out UseableItem item))
+            UseableItem item = selectedItem.GetType<UseableItem>();
+            if (item)
             {
                 item.UsePrimairy(transform,itemTransform, new Inventory[] { this });
             }
         }
         if (InputManager.instance.GetKeyDown(secondairyAction))
         {
-            if (selectedItem.TryGetType<UseableItem>(out UseableItem item))
+            UseableItem item = selectedItem.GetType<UseableItem>();
+            if (item)
             {
                 item.UseSecondairy(transform, itemTransform, new Inventory[] {this });
             }
@@ -57,11 +59,18 @@ public class HotbarInventory : Inventory
         }
     }
 
+    private void OnDrawGizmos()
+    {
+        Transform playerCamera = PlayerCamera.instance.transform;
+        Gizmos.DrawLine(playerCamera.position, playerCamera.position + playerCamera.rotation * Vector3.forward * 10);
+    }
+
     public void DeselectItem() 
     {
         if (selectedItem)
         {
-            if (selectedItem.TryGetType<UseableItem>(out UseableItem item))
+            UseableItem item = selectedItem.GetType<UseableItem>();
+            if (item)
             {
                 item.Deselect(transform, itemTransform, new Inventory[] { this });
             }
@@ -86,7 +95,8 @@ public class HotbarInventory : Inventory
         {
             if (triggerSelect)
             {
-                if (selectedItem.TryGetType<UseableItem>(out UseableItem item))
+                UseableItem item = selectedItem.GetType<UseableItem>();
+                if (item)
                 {
                     item.Select(transform, transform, new Inventory[] { this });
                 }

@@ -8,23 +8,32 @@ public class Tool : Weapon
     [Header("Tool")]
     [SerializeField] private ResourceTypes resourceType;
 
-    public Tool(Weapon item, Inventory inventory, int amount = 1) : base(item, inventory, amount)
+    public Tool(Tool item, Inventory inventory, int amount = 1) : base(item, inventory, amount)
     {
+        this.resourceType = item.resourceType;
     }
 
-    public Tool(float range, float damage, float cooldown, float durability, float maxDurability, string description, float weight, int maxStack, Sprite icon, Sprite sprite, Inventory inventory, int amount = 1) : base(range, damage, cooldown, durability, maxDurability, description, weight, maxStack, icon, sprite, inventory, amount)
+    public Tool(ResourceTypes resourceType, float range, float damage, float cooldown, float durability, float maxDurability, string description, float weight, int maxStack, Sprite icon, Sprite sprite, Inventory inventory, int amount = 1) : base(range, damage, cooldown, durability, maxDurability, description, weight, maxStack, icon, sprite, inventory, amount)
     {
+        this.resourceType = resourceType;
+    }
+
+    public override Item Create(Item item, Inventory inventory, int amount = 1)
+    {
+        Item newItem = new Tool((Tool)item, inventory, amount);
+        newItem.name = this.name;
+        return newItem;
     }
 
     public override void UsePrimairy(Transform userTransform, Transform itemTransform, Inventory[] inventories)
     {
         if (GameManager.instance.gameTime < cooldownTime) return;
         cooldownTime = GameManager.instance.gameTime + cooldown;
-
         OnItemUsePrimairy();
 
         foreach (var target in GetTargets())
         {
+            Debug.Log(target);
             if (target.transform.TryGetComponent<Resource>(out Resource resource))
             {
                 if (resource.CanHarvest(resourceType))
