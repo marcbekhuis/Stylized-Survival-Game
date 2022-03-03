@@ -19,7 +19,7 @@ MonoBehaviour:
   sprite: {fileID: 0}
   amount: 0
   inventory: {fileID: 0}
-  maxDurability: 324
+  maxDurability: 20
   range: 5
   damage: 5
   cooldown: 1

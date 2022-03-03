@@ -178,8 +178,39 @@ MonoBehaviour:
   items:
   - item: {fileID: 11400000, guid: 979f52c994a792448b37783ce1c7ae0e, type: 2}
     amount: 3
-  maxGrowSize: 2
-  growDuration: 60
+  sizeAge:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0.11070364
+      outSlope: 0.11070364
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.097074464
+    - serializedVersion: 3
+      time: 15
+      value: 1
+      inSlope: 0.03894592
+      outSlope: 0.03894592
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 60
+      value: 2
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   respawnCooldown: 10
 --- !u!1 &1244885105455798
 GameObject:

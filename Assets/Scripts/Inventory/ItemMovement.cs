@@ -104,7 +104,7 @@ public class ItemMovement : Singleton<ItemMovement>
     private void MoveItemDisplayAnchorPoint(Vector2 mousePosition)
     {
         Vector2 tooltipSize = itemDisplayRectTransform.rect.size * CanvasScaleHelper.instance.GetCanvasScale();
-        Vector2 screenSize = Camera.main.pixelRect.size;
+        Vector2 screenSize = PlayerCamera.instance.camera.pixelRect.size;
         Vector2 pivot = new Vector2(0, 1);
 
         if (mousePosition.y - tooltipSize.y < 0) pivot = new Vector2(pivot.x, 0);

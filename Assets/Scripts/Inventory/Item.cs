@@ -54,11 +54,25 @@ public class Item : ScriptableObject
 
     public T GetType<T>() where T : Item
     {
-        return (T)this;
+        try
+        {
+            return (T)this;
+        }
+        catch (Exception)
+        {
+            return null;
+        }
     }
 
     public bool IsType<T>() where T : Item
     {
-        return (T)this;
+        try
+        {
+            return (T)this;
+        }
+        catch (Exception)
+        {
+            return false;
+        }
     }
 }

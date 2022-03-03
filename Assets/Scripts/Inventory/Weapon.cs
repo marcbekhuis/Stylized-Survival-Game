@@ -18,14 +18,16 @@ public class Weapon : UseableItem
         this.range = item.range;
         this.damage = item.damage;
         this.cooldown = item.cooldown;
+        this.targetLayer = item.targetLayer;
         cooldownTime = GameManager.instance.gameTime;
     }
 
-    public Weapon(float range, float damage, float cooldown, float durability, float maxDurability, string description, float weight, int maxStack, Sprite icon, Sprite sprite, Inventory inventory, int amount = 1) : base(durability, maxDurability, description, weight, maxStack, icon, sprite, inventory, amount)
+    public Weapon(LayerMask targetLayer, float range, float damage, float cooldown, float durability, float maxDurability, string description, float weight, int maxStack, Sprite icon, Sprite sprite, Inventory inventory, int amount = 1) : base(durability, maxDurability, description, weight, maxStack, icon, sprite, inventory, amount)
     {
         this.range = range;
         this.damage = damage;
         this.cooldown = cooldown;
+        this.targetLayer = targetLayer;
         cooldownTime = GameManager.instance.gameTime;
     }
 

@@ -13,7 +13,7 @@ public class Tool : Weapon
         this.resourceType = item.resourceType;
     }
 
-    public Tool(ResourceTypes resourceType, float range, float damage, float cooldown, float durability, float maxDurability, string description, float weight, int maxStack, Sprite icon, Sprite sprite, Inventory inventory, int amount = 1) : base(range, damage, cooldown, durability, maxDurability, description, weight, maxStack, icon, sprite, inventory, amount)
+    public Tool(ResourceTypes resourceType, LayerMask targetLayer, float range, float damage, float cooldown, float durability, float maxDurability, string description, float weight, int maxStack, Sprite icon, Sprite sprite, Inventory inventory, int amount = 1) : base(targetLayer, range, damage, cooldown, durability, maxDurability, description, weight, maxStack, icon, sprite, inventory, amount)
     {
         this.resourceType = resourceType;
     }
@@ -31,9 +31,8 @@ public class Tool : Weapon
         cooldownTime = GameManager.instance.gameTime + cooldown;
         OnItemUsePrimairy();
 
-        foreach (var target in GetTargets())
+        foreach (var target in base.GetTargets())
         {
-            Debug.Log(target);
             if (target.transform.TryGetComponent<Resource>(out Resource resource))
             {
                 if (resource.CanHarvest(resourceType))

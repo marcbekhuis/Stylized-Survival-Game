@@ -20,7 +20,7 @@ public class ItemDisplay : MonoBehaviour
         set
         {
             itemVar = value;
-            if(itemVar) UpdateDislpay();
+            if(itemVar) UpdateDisplay();
         }
     }
 
@@ -39,7 +39,7 @@ public class ItemDisplay : MonoBehaviour
         if(!tooltipActivating) TooltipHandler.instance.RemoveItemDisplay(this);
     }
 
-    public void UpdateDislpay()
+    public void UpdateDisplay()
     {
         if (item.maxStack <= 1)
         {

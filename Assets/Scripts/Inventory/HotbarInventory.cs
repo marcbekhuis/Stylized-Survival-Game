@@ -28,20 +28,23 @@ public class HotbarInventory : Inventory
         if (!photonView.IsMine) return;
         if (GameManager.instance.inventoryOpen) return;
 
-        if (InputManager.instance.GetKeyDown(primairyAction))
+        if (selectedItem)
         {
-            UseableItem item = selectedItem.GetType<UseableItem>();
-            if (item)
+            if (InputManager.instance.GetKeyDown(primairyAction))
             {
-                item.UsePrimairy(transform,itemTransform, new Inventory[] { this });
+                UseableItem item = selectedItem.GetType<UseableItem>();
+                if (item)
+                {
+                    item.UsePrimairy(transform, itemTransform, new Inventory[] { this });
+                }
             }
-        }
-        if (InputManager.instance.GetKeyDown(secondairyAction))
-        {
-            UseableItem item = selectedItem.GetType<UseableItem>();
-            if (item)
+            if (InputManager.instance.GetKeyDown(secondairyAction))
             {
-                item.UseSecondairy(transform, itemTransform, new Inventory[] {this });
+                UseableItem item = selectedItem.GetType<UseableItem>();
+                if (item)
+                {
+                    item.UseSecondairy(transform, itemTransform, new Inventory[] { this });
+                }
             }
         }
 

@@ -17,12 +17,14 @@ public class DurabilityItem : Item
     {
         this.durability = item.maxDurability;
         this.maxDurability = item.maxDurability;
+        onDurabilityChanged(durability, maxDurability);
     }
 
     public DurabilityItem(float durability, float maxDurability, string description, float weight, int maxStack, Sprite icon, Sprite sprite, Inventory inventory, int amount = 1) : base(description, weight, maxStack, icon, sprite, inventory, amount)
     {
         this.durability = maxDurability;
         this.maxDurability = maxDurability;
+        onDurabilityChanged(durability, maxDurability);
     }
 
     public override Item Create(Item item, Inventory inventory, int amount = 1)
