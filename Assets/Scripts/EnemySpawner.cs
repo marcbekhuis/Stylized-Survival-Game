@@ -12,8 +12,9 @@ public class EnemySpawner : MonoBehaviourPunCallbacks
     [SerializeField] private EnemyEntry[] enemyPrefabs;
 
     public static EnemySpawner instance;
-    private List<Transform> players;
+    private List<Transform> players = new List<Transform>();
 
+    [System.Serializable]
     public class EnemyEntry
     {
         public GameObject prefab;
@@ -46,11 +47,12 @@ public class EnemySpawner : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
+        if (players.Count <= 0) return;
+
         foreach (var enemyPrefab in enemyPrefabs)
         {
             if (GameManager.instance.gameTime < enemyPrefab.nextSpawn) continue;
             if (enemyPrefab.amountSpawned >= enemyPrefab.maxAmount) continue;
-            if (players.Count <= 0) return;
 
             enemyPrefab.nextSpawn = GameManager.instance.gameTime + enemyPrefab.spawnCooldown;
             enemyPrefab.amountSpawned++;

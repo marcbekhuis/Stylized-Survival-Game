@@ -39,7 +39,6 @@ public class AIMovement : CharacterMovement
         if (target != null)
         {
             NavMesh.CalculatePath(transform.position, target.position, NavMesh.AllAreas, path);
-            Debug.LogError(path.corners[1]);
             if(Vector3.Distance(transform.position, path.corners[1]) > 0.3) 
             {
                 transform.LookAt(path.corners[1]);

@@ -18,4 +18,9 @@ public class HealthSystem : MonoBehaviour
             }
         } 
     }
+
+    private void Awake()
+    {
+        Health = maxHealth;
+    }
 }

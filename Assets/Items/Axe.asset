@@ -22,8 +22,8 @@ MonoBehaviour:
   maxDurability: 20
   range: 5
   damage: 5
-  cooldown: 1
+  cooldown: 10
   targetLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 384
   resourceType: 1
