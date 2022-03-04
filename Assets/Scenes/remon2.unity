@@ -546924,7 +546924,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravity: -10
-  gravityTimeMultiplier: 0.1
+  gravityTimeMultiplier: 0.5
   playerPrefab: Player
   spawnPoints: {fileID: 1576286148}
   displayVariables: {fileID: 1452325174}
