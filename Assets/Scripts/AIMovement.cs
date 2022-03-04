@@ -12,13 +12,9 @@ public class AIMovement : CharacterMovement
     [SerializeField] private Vector3 point;
     private NavMeshPath path;
 
-    [SerializeField] private float colliderRadius;
-    // Start is called before the first frame update
     void Start()
     {
         sc = this.GetComponent<SphereCollider>();
-        //point = this.transform.GetChild(0).gameObject;
-        sc.radius = colliderRadius;
         path = new NavMeshPath();
         lookAtPoint();
     }
@@ -43,7 +39,11 @@ public class AIMovement : CharacterMovement
         if (target != null)
         {
             NavMesh.CalculatePath(transform.position, target.position, NavMesh.AllAreas, path);
-            transform.LookAt(path.corners[1]);
+            Debug.LogError(path.corners[1]);
+            if(Vector3.Distance(transform.position, path.corners[1]) > 0.3) 
+            {
+                transform.LookAt(path.corners[1]);
+            }
         }
         else
         {
