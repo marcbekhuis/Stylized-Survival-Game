@@ -54,7 +54,7 @@ public class Resource : MonoBehaviour
     {
         if (destroyed)
         {
-            if (Time.time > respawnTime)
+            if (GameManager.instance.gameTime > respawnTime)
             {
                 foreach (Transform lod in transform)
                 {
@@ -95,7 +95,7 @@ public class Resource : MonoBehaviour
         {
             lod.gameObject.SetActive(false);
         }
-        respawnTime = Time.time + respawnCooldown;
+        respawnTime = GameManager.instance.gameTime + respawnCooldown;
         collider.enabled = false;
         destroyed = true;
     }
