@@ -21,11 +21,11 @@ public class Animation : MonoBehaviour
     void Update()
     {
         float distance = Vector3.Distance(transform.position, lastPos);
-        Debug.LogWarning(distance);
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            anim.SetInteger("Jump", 1);
-        }
+
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    anim.SetInteger("Jump", 1);
+        //}
         if (distance > 0.03)
         {
             anim.SetBool("Walk", true);

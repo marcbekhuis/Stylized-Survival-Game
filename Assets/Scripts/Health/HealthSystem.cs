@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class HealthSystem : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class HealthSystem : MonoBehaviour
     public float Health { get=>health; set {
             health = value;
             onHealthChanged(health, maxHealth);
+            if(health <= 0)
+            {
+                PhotonNetwork.Destroy(this.gameObject);
+            }
         } 
     }
 }
