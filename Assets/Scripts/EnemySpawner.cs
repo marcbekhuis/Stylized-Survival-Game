@@ -9,10 +9,11 @@ public class EnemySpawner : MonoBehaviourPunCallbacks
     [SerializeField] private float minPlacementHeight = 0;
     [SerializeField] private float maxPlacementHeight = 500;
     [SerializeField] LayerMask hitTarget;
+    [SerializeField] LayerMask collisionLayer;
     [SerializeField] private EnemyEntry[] enemyPrefabs;
 
     public static EnemySpawner instance;
-    private List<Transform> players = new List<Transform>();
+    [SerializeField] private List<Transform> players = new List<Transform>();
 
     [System.Serializable]
     public class EnemyEntry
@@ -65,14 +66,20 @@ public class EnemySpawner : MonoBehaviourPunCallbacks
     {
         for (int i = 0; i < 100; i++)
         {
-            Vector3 position = players[Random.Range(0, players.Count)].position;
-            float[] scale = new float[] { -1, 1 };
-            float x = Random.Range(enemyPrefab.minSpawnRadius, enemyPrefab.maxSpawnRadius) * scale[Random.Range(0, scale.Length)];
-            float z = Random.Range(enemyPrefab.minSpawnRadius, enemyPrefab.maxSpawnRadius) * scale[Random.Range(0, scale.Length)];
-            position += new Vector3(x, 0, z);
-            RaycastHit[] hits = Physics.RaycastAll(new Vector3(position.x, maxPlacementHeight, position.y), Vector3.down, maxPlacementHeight - minPlacementHeight, hitTarget);
+            Vector3 playerPosition = players[Random.Range(0, players.Count)].position;
+            Vector2 randomRadius = Random.insideUnitCircle * enemyPrefab.maxSpawnRadius;
+
+            if (randomRadius.x > -enemyPrefab.minSpawnRadius && randomRadius.x < enemyPrefab.minSpawnRadius) continue;
+            if (randomRadius.y > -enemyPrefab.minSpawnRadius && randomRadius.y < enemyPrefab.minSpawnRadius) continue;
+
+            Vector3 position = playerPosition + new Vector3(randomRadius.x, 0, randomRadius.y);
+
+            RaycastHit[] hits = Physics.RaycastAll(new Vector3(position.x, maxPlacementHeight, position.z), Vector3.down, maxPlacementHeight - minPlacementHeight, hitTarget);
             if (hits.Length <= 0) continue;
-            return hits[0].point;
+            Vector3 enemyPosition = hits[0].point + enemyPrefab.groundOffset;
+            if (Physics.CheckSphere(enemyPosition, 1, collisionLayer)) continue;
+
+            return enemyPosition;
         }
 
         return Vector3.zero;

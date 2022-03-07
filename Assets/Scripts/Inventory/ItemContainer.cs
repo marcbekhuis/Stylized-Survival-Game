@@ -61,6 +61,11 @@ public class ItemContainer : MonoBehaviour
         backgroundImage.color = color;
     }
 
+    public void SetSprite(Sprite sprite)
+    {
+        backgroundImage.sprite = sprite;
+    }
+
     public bool MouseOver(out Item item)
     {
         Vector2 halfSize = rectTransform.rect.size * 0.5f * CanvasScaleHelper.instance.GetCanvasScale();

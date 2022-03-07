@@ -5,8 +5,8 @@ using UnityEngine;
 public class HotbarDisplay : InventoryDisplay
 {
     public HotbarInventory hotbarInventory;
-    [SerializeField] private Color defaultColor = Color.white;
-    [SerializeField] private Color SelectedColor = Color.red;
+    [SerializeField] private Sprite defaultSprite;
+    [SerializeField] private Sprite selectedSprite;
 
     public override void UpdateDisplay()
     {
@@ -28,8 +28,8 @@ public class HotbarDisplay : InventoryDisplay
             {
                 ItemContainer itemContainer = itemContainers[i];
                 itemContainer.item = items[i];
-                if (i == hotbarInventory.index) itemContainer.SetColor(SelectedColor);
-                else itemContainer.SetColor(defaultColor);
+                if (i == hotbarInventory.index) itemContainer.SetSprite(selectedSprite);
+                else itemContainer.SetSprite(defaultSprite);
             }
             else
             {
@@ -43,8 +43,8 @@ public class HotbarDisplay : InventoryDisplay
                 }
                 itemContainer.Setup(new Vector2Int(x,y), movableContainers, hotbarInventory);
                 itemContainer.item = items[i];
-                if (i == hotbarInventory.index) itemContainer.SetColor(SelectedColor);
-                else itemContainer.SetColor(defaultColor);
+                if (i == hotbarInventory.index) itemContainer.SetSprite(selectedSprite);
+                else itemContainer.SetSprite(defaultSprite);
             }
         }
     }
