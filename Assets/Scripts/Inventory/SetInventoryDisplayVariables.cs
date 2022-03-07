@@ -8,13 +8,13 @@ public class SetInventoryDisplayVariables : MonoBehaviour
     [SerializeField] private InventoryDisplay hotbarInventoryDisplay;
     [SerializeField] private HotbarDisplay hotbarDisplay;
 
-    [SerializeField] private HealthUI healthUI;
+    [SerializeField] private StatBar healthUI;
 
     public void SetVariable(GameObject player)
     {
         Inventory inventory = player.GetComponent<Inventory>();
         HotbarInventory hotbarInventory = player.GetComponent<HotbarInventory>();
-        //player.GetComponent<HealthSystem>().onHealthChanged += healthUI.updateHealth;
+        player.GetComponent<HealthSystem>().onHealthChanged += healthUI.UpdateBar;
 
 
         hotbarDisplay.hotbarInventory = hotbarInventory;

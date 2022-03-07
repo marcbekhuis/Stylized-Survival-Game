@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using System.Linq;
 
 public class CharacterMovement : MonoBehaviourPun
 {
     [SerializeField] protected float speed = 10;
-    [SerializeField] protected float jumpSpeed = 10;
-    [SerializeField] protected float jumpDuration = 10;
     [SerializeField] protected float rotationSpeed = 1;
+    [SerializeField] protected AnimationCurve jumpCurve;
     [Header("GroundCheck")]
     [SerializeField] private Vector3 groundCheckOffset = Vector3.zero;
     [SerializeField] private Vector3 groundCheckSize = Vector3.one;
@@ -69,9 +69,9 @@ public class CharacterMovement : MonoBehaviourPun
         airTime = 0;
         jumping = true;
         applyGravity = false;
-        for (float i = 0; i < jumpDuration; i += Time.deltaTime)
+        for (float i = 0; i < jumpCurve.keys.Last().time; i += Time.deltaTime)
         {
-            characterController.Move(transform.rotation * (Vector3.up * jumpSpeed) * Time.deltaTime);
+            characterController.Move(transform.rotation * (Vector3.up * jumpCurve.Evaluate(i)) * Time.deltaTime);
             yield return null;
         }
         applyGravity = true;

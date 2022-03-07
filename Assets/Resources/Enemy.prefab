@@ -65,9 +65,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  jumpSpeed: 30
-  jumpDuration: 0.1
   rotationSpeed: 1
+  jumpCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   groundCheckOffset: {x: 0, y: -0.5, z: 0}
   groundCheckSize: {x: 1, y: 0.1, z: 1}
   groundCheckMask:

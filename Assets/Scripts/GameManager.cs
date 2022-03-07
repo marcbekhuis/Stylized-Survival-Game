@@ -6,7 +6,7 @@ using Photon.Pun;
 public class GameManager : MonoBehaviourPunCallbacks
 {
     [SerializeField] private float gravity = -10;
-    [SerializeField] private float gravityTimeMultiplier = 0.1f;
+    [SerializeField] private AnimationCurve gravityTimeMultiplier;
     [SerializeField] private string playerPrefab;
     [SerializeField] private Transform spawnPoints;
     [SerializeField] private SetInventoryDisplayVariables displayVariables;
@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public Vector3 Gravity(float time) 
     { 
-        return Vector3.up * (gravity * (time * gravityTimeMultiplier)) * Time.deltaTime; 
+        return Vector3.up * (gravity * (time * gravityTimeMultiplier.Evaluate(time))) * Time.deltaTime; 
     }
 
     public void SpawnPlayerCharacter()
