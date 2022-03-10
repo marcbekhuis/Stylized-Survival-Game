@@ -28,6 +28,8 @@ public class PlayerMovement : CharacterMovement
     {
         Vector3 movementDirection = Vector3.zero;
 
+        float speed = walkSpeed;
+        if (InputManager.instance.GetKey(InputActions.Sprint)) speed = runSpeed;
         movementDirection += Vector3.forward * InputManager.instance.GetAxis(InputAxis.Vertical) * speed;
         movementDirection += Vector3.right * InputManager.instance.GetAxis(InputAxis.Horizontal) * speed;
 

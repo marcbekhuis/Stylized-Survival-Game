@@ -74,7 +74,7 @@ public class AIMovement : CharacterMovement
             }
         }
         
-        characterController.Move(transform.rotation * Vector3.forward * speed * Time.deltaTime);
+        characterController.Move(transform.rotation * Vector3.forward * walkSpeed * Time.deltaTime);
     }
 
     private void FindTarget()

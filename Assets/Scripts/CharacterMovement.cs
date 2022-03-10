@@ -6,7 +6,8 @@ using System.Linq;
 
 public class CharacterMovement : MonoBehaviourPun
 {
-    [SerializeField] protected float speed = 10;
+    [SerializeField] protected float walkSpeed = 10;
+    [SerializeField] protected float runSpeed = 10;
     [SerializeField] protected float rotationSpeed = 1;
     [SerializeField] protected AnimationCurve jumpCurve;
     [Header("GroundCheck")]
@@ -19,11 +20,18 @@ public class CharacterMovement : MonoBehaviourPun
     protected bool jumping = false;
 
     private float airTime = 0;
+    private float velocity;
+    private MovementType movementType;
+    private Vector3 Oldposition;
+
+    public float Velocity { get => velocity; }
+    public MovementType GetMovement { get => movementType; }
 
     // Start is called before the first frame update
     protected virtual void Awake()
     {
         characterController = GetComponent<CharacterController>();
+        Oldposition = this.transform.position;
     }
 
     // Update is called once per frame
@@ -48,6 +56,7 @@ public class CharacterMovement : MonoBehaviourPun
     protected virtual void AfterUpdate()
     {
         photonView.RPC("RPCSyncTransform", RpcTarget.Others, transform.position, transform.rotation);
+        CalculateVelocity();
     }
 
     [PunRPC]
@@ -78,9 +87,30 @@ public class CharacterMovement : MonoBehaviourPun
         jumping = false;
     }
 
+    private void CalculateVelocity()
+    {
+        velocity = Vector3.Distance(this.transform.position, Oldposition);
+        if(velocity < walkSpeed * Time.deltaTime)
+        {
+            movementType = MovementType.Idle;
+        }
+        else if(velocity < runSpeed * Time.deltaTime)
+        {
+            movementType = MovementType.Walk;
+        }
+        else
+        {
+            movementType = MovementType.Run;
+        }
+
+        Oldposition = this.transform.position;
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawCube(transform.position + groundCheckOffset, groundCheckSize);
     }
+
+    public enum MovementType {Idle, Walk, Run}
 }
