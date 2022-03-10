@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     [SerializeField] private AnimationCurve gravityTimeMultiplier;
     [SerializeField] private string playerPrefab;
     [SerializeField] private Transform spawnPoints;
-    [SerializeField] private SetInventoryDisplayVariables displayVariables;
+    [SerializeField] private SetDisplayVariables displayVariables;
 
     public bool inventoryOpen = false;
     public bool playerPaused = false;
