@@ -40,7 +40,7 @@ public class TowerMaker : MonoBehaviour
                 if (Random.Range(0, 100) < windowChance)
                 {
                     towerSecment = Instantiate(towerWindowPrefab, this.transform);
-                    towerSecment.transform.localEulerAngles = new Vector3(0, Random.Range(0, 360/rotationSteps) * rotationSteps, 0);
+                    towerSecment.transform.localEulerAngles = new Vector3(0, Random.Range(0, (360/rotationSteps)/2) * rotationSteps, 0);
                 }
                 else
                 {

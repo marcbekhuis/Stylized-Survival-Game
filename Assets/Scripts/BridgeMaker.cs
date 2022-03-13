@@ -6,6 +6,7 @@ using UnityEngine;
 public class BridgeMaker : MonoBehaviour
 {
     [SerializeField] private bool update = true;
+    [SerializeField] private bool hasPillars = true;
     [SerializeField] private float pillarHeight = 6;
     [SerializeField] private float additionalPillars = 0;
     [SerializeField] private float maxFloorCheck = 100;
@@ -25,6 +26,8 @@ public class BridgeMaker : MonoBehaviour
 
         GameObject bridge = Instantiate(bridgePrefab, this.transform);
         bridge.transform.localPosition = Vector3.zero;
+
+        if (!hasPillars) return;
 
         RaycastHit[] raycastHitsRight = Physics.RaycastAll(this.transform.position + this.transform.rotation * new Vector3(0, 0, 10), Vector3.down, maxFloorCheck, targetMask);
         RaycastHit[] raycastHitsLeft = Physics.RaycastAll(this.transform.position + this.transform.rotation * new Vector3(0, 0, -10), Vector3.down, maxFloorCheck, targetMask);
