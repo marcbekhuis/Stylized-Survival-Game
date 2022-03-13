@@ -75,7 +75,22 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 9ce8ca3906718da48a00506c67d9a590,
         type: 3}
       propertyPath: m_Name
-      value: Tower Door Cylinder
+      value: Tower Door Cylinder Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 9ce8ca3906718da48a00506c67d9a590,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1714443547824706443, guid: 9ce8ca3906718da48a00506c67d9a590,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2675024899571627054, guid: 9ce8ca3906718da48a00506c67d9a590,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8890765847295061327, guid: 9ce8ca3906718da48a00506c67d9a590,
         type: 3}
@@ -84,3 +99,23 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 605051bd35b4b9b4cb0de0eb6c5f4c23, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ce8ca3906718da48a00506c67d9a590, type: 3}
+--- !u!1 &8441592709176194477 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1714443547824706443, guid: 9ce8ca3906718da48a00506c67d9a590,
+    type: 3}
+  m_PrefabInstance: {fileID: 7128180634923836966}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &4770396807743012025
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8441592709176194477}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6288008109150970251, guid: 9ce8ca3906718da48a00506c67d9a590, type: 3}

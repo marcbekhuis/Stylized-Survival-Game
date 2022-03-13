@@ -70,7 +70,12 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 51c0c4a340073444485bca3e5be21472,
         type: 3}
       propertyPath: m_Name
-      value: Roof Trim Square
+      value: Roof Trim Square Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 51c0c4a340073444485bca3e5be21472,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51c0c4a340073444485bca3e5be21472, type: 3}

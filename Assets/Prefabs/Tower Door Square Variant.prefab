@@ -67,6 +67,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 605051bd35b4b9b4cb0de0eb6c5f4c23, type: 2}
+    - target: {fileID: -7245164790372384107, guid: fa9a85ed365967944a72cc1b57cc6e0d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -6700399448542535116, guid: fa9a85ed365967944a72cc1b57cc6e0d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 559790763042860523, guid: fa9a85ed365967944a72cc1b57cc6e0d,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -75,12 +85,42 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: fa9a85ed365967944a72cc1b57cc6e0d,
         type: 3}
       propertyPath: m_Name
-      value: Tower Door Square
+      value: Tower Door Square Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fa9a85ed365967944a72cc1b57cc6e0d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5038203697418315360, guid: fa9a85ed365967944a72cc1b57cc6e0d,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 589c4677323ad484dbd4df274d23d074, type: 2}
+    - target: {fileID: 5644922722017566819, guid: fa9a85ed365967944a72cc1b57cc6e0d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa9a85ed365967944a72cc1b57cc6e0d, type: 3}
+--- !u!1 &2541948548483602882 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -6700399448542535116, guid: fa9a85ed365967944a72cc1b57cc6e0d,
+    type: 3}
+  m_PrefabInstance: {fileID: 19622498786704374}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &5923809706016284178
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2541948548483602882}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5784978515493988933, guid: fa9a85ed365967944a72cc1b57cc6e0d, type: 3}

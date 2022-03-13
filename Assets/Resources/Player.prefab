@@ -341,7 +341,7 @@ MonoBehaviour:
   groundCheckSize: {x: 0.4, y: 0.1, z: 0.4}
   groundCheckMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 1088
 --- !u!114 &3598005031447745124
 MonoBehaviour:
   m_ObjectHideFlags: 0
