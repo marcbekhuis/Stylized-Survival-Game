@@ -22,10 +22,17 @@ public class CharacterMovement : MonoBehaviourPun
     private float airTime = 0;
     private float velocity;
     private MovementType movementType;
-    private Vector3 Oldposition;
+    private Vector2 Oldposition;
 
     public float Velocity { get => velocity; }
     public MovementType GetMovement { get => movementType; }
+
+    public bool GroundCheck
+    {
+        get => Physics.OverlapBox(transform.position + groundCheckOffset, groundCheckSize * 0.5f, new Quaternion(0, 0, 0, 0), groundCheckMask).Length > 0;
+    }
+
+    public bool Jumping { get => jumping; }
 
     // Start is called before the first frame update
     protected virtual void Awake()
@@ -37,7 +44,7 @@ public class CharacterMovement : MonoBehaviourPun
     // Update is called once per frame
     protected virtual void Update()
     {
-        if (GroundCheck())
+        if (GroundCheck)
         {
             airTime = 0;
         }
@@ -46,11 +53,6 @@ public class CharacterMovement : MonoBehaviourPun
             airTime += Time.deltaTime;
         }
         if (applyGravity) characterController.Move(GameManager.instance.Gravity(airTime));
-    }
-
-    protected bool GroundCheck()
-    {
-        return Physics.OverlapBox(transform.position + groundCheckOffset, groundCheckSize * 0.5f, new Quaternion(0, 0, 0, 0), groundCheckMask).Length > 0;
     }
 
     protected virtual void AfterUpdate()
@@ -69,7 +71,7 @@ public class CharacterMovement : MonoBehaviourPun
     protected void Jump()
     {
         if (jumping) return;
-        if (!GroundCheck()) return;
+        if (!GroundCheck) return;
         StartCoroutine(JumpEnum());
     }
 
@@ -89,7 +91,8 @@ public class CharacterMovement : MonoBehaviourPun
 
     private void CalculateVelocity()
     {
-        velocity = Vector3.Distance(this.transform.position, Oldposition);
+        Vector2 flatNewPos = new Vector2(this.transform.position.y, this.transform.position.z);
+        velocity = Vector2.Distance(flatNewPos, Oldposition);
         if(velocity < walkSpeed * Time.deltaTime)
         {
             movementType = MovementType.Idle;
@@ -103,7 +106,7 @@ public class CharacterMovement : MonoBehaviourPun
             movementType = MovementType.Run;
         }
 
-        Oldposition = this.transform.position;
+        Oldposition = flatNewPos;
     }
 
     private void OnDrawGizmos()

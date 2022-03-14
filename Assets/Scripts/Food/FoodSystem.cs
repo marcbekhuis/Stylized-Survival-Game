@@ -10,6 +10,7 @@ public class FoodSystem : MonoBehaviourPun
     [SerializeField] private float food;
     [SerializeField] private float maxFood;
     [SerializeField] private float damagePerSec = 1;
+    [SerializeField] private float healingPerSec = 1;
     [SerializeField] private float idleFoodConsumption = 0.1f;
     [SerializeField] private float walkFoodConsumption = 1f;
     [SerializeField] private float runFoodConsumption = 2f;
@@ -32,6 +33,10 @@ public class FoodSystem : MonoBehaviourPun
             if(food <= 0)
             {
                 healthSystem.Health -= damagePerSec * Time.deltaTime;
+            }
+            if(food >= maxFood)
+            {
+                healthSystem.Health += healingPerSec * Time.deltaTime;
             }
         }
         if (characterMovement)
