@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: You need food to stay alive
   weight: 0
-  maxStack: 0
+  maxStack: 20
   icon: {fileID: 0}
   sprite: {fileID: 0}
   amount: 0

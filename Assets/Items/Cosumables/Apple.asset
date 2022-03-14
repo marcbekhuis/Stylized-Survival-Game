@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: Watch your head! They fall out of a tree
   weight: 0
-  maxStack: 0
+  maxStack: 20
   icon: {fileID: 0}
   sprite: {fileID: 0}
   amount: 0
