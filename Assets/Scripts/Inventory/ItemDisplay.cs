@@ -54,13 +54,14 @@ public class ItemDisplay : MonoBehaviour
         if (item.IsType<DurabilityItem>())
         {
             DurabilityItem durability = item.GetType<DurabilityItem>();
-            UpdateDurabilityBar(durability.Durability, durability.maxDurability);
-            durability.onDurabilityChanged += UpdateDurabilityBar;
+            if (durability.maxDurability > 0)
+            {
+                UpdateDurabilityBar(durability.Durability, durability.maxDurability);
+                durability.onDurabilityChanged += UpdateDurabilityBar;
+                return;
+            }
         }
-        else
-        {
-            durabilityBar.gameObject.SetActive(false);
-        }
+        durabilityBar.gameObject.SetActive(false);
     }
 
     public bool MouseOver(out Item item)
