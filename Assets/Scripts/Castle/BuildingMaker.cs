@@ -85,9 +85,12 @@ public class BuildingMaker : MonoBehaviour
         roof.transform.localPosition = new Vector3(0, floorSecmentHeight * buildingSecments + 0.1f, 0);
         roof.transform.localScale = new Vector3(size.x * 100, size.y * 100, 100);
 
-        GameObject trim = Instantiate(roofTrimPrefab, this.transform);
-        trim.transform.localPosition = new Vector3(0, floorSecmentHeight * buildingSecments, 0);
-        trim.transform.localScale = new Vector3(size.x * 100, size.y * 100, 100);
+        if (roofTrimPrefab)
+        {
+            GameObject trim = Instantiate(roofTrimPrefab, this.transform);
+            trim.transform.localPosition = new Vector3(0, floorSecmentHeight * buildingSecments, 0);
+            trim.transform.localScale = new Vector3(size.x * 100, size.y * 100, 100);
+        }
 
         update = false;
     }

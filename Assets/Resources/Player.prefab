@@ -486,6 +486,7 @@ MonoBehaviour:
   food: 0
   maxFood: 100
   damagePerSec: 1
+  healingPerSec: 1
   idleFoodConsumption: 0.1
   walkFoodConsumption: 1
   runFoodConsumption: 2

@@ -5,10 +5,10 @@ using UnityEngine;
 public class UseableItem : DurabilityItem
 {
     public delegate void OnItemUse(UseableItem item);
-    public event OnItemUse onItemSelected = delegate { };
-    public event OnItemUse onItemDeselected = delegate { };
-    public event OnItemUse onItemUsePrimairy = delegate { };
-    public event OnItemUse onItemUseSecundairy = delegate { };
+    public static event OnItemUse onItemSelected = delegate { };
+    public static event OnItemUse onItemDeselected = delegate { };
+    public static event OnItemUse onItemUsePrimairy = delegate { };
+    public static event OnItemUse onItemUseSecundairy = delegate { };
 
     public UseableItem(UseableItem item, Inventory inventory, int amount = 1) : base(item, inventory, amount)
     {
