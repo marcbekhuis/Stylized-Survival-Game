@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 749a904d23dd6174e84dde3c70c36215, type: 3}
   m_Name: Berries
   m_EditorClassIdentifier: 
-  description: 
+  description: Some fresh plucked berries
   weight: 0
-  maxStack: 0
+  maxStack: 20
   icon: {fileID: 0}
   sprite: {fileID: 0}
   amount: 0
   inventory: {fileID: 0}
   maxDurability: 0
   foodRegen: 0
-  healthRegen: 0
+  healthRegen: -10
   cooldown: 0
