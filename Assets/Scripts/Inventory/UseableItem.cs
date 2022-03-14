@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New useable item", menuName = "Items/UseableItem")]
 public class UseableItem : DurabilityItem
 {
     public delegate void OnItemUse(UseableItem item);
