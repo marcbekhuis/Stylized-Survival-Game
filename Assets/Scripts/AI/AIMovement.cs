@@ -37,12 +37,15 @@ public class AIMovement : CharacterMovement
             {
                 if (Vector3.Distance(transform.position, path.corners[1]) > cornerAcceptanceRange)
                 {
-                    transform.LookAt(path.corners[1]);
+                    Vector3 rotation = (path.corners[1] - this.transform.position).normalized * -180;
+
+                    transform.eulerAngles = new Vector3(0,rotation.y,0);
                 }
             }
             else
             {
-                transform.LookAt(target.position);
+                Vector3 rotation = (target.position - this.transform.position).normalized * -180;
+                transform.eulerAngles = new Vector3(0, rotation.y, 0);
             }
         }
         else
@@ -120,7 +123,8 @@ public class AIMovement : CharacterMovement
     {
         if (RandomPoint(transform.position, radius, out point))
         {
-            transform.LookAt(point);
+            Vector3 rotation = (point - this.transform.position).normalized * -180;
+            transform.eulerAngles = new Vector3(0, rotation.y, 0);
         }
     }
 

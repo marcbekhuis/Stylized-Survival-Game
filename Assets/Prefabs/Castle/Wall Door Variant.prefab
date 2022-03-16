@@ -67,6 +67,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 605051bd35b4b9b4cb0de0eb6c5f4c23, type: 2}
+    - target: {fileID: -7245164790372384107, guid: 28f2f0a0670229142ae25fde40e071ac,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -6700399448542535116, guid: 28f2f0a0670229142ae25fde40e071ac,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 559790763042860523, guid: 28f2f0a0670229142ae25fde40e071ac,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -75,7 +85,12 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 28f2f0a0670229142ae25fde40e071ac,
         type: 3}
       propertyPath: m_Name
-      value: Wall Door
+      value: Wall Door Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 28f2f0a0670229142ae25fde40e071ac,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28f2f0a0670229142ae25fde40e071ac, type: 3}
