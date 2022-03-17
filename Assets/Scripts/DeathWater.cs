@@ -8,6 +8,7 @@ public class DeathWater : MonoBehaviour
     [SerializeField] private Vector3 offset = Vector3.zero;
     [SerializeField] private Vector3 halfSize = Vector3.one;
     [SerializeField] private LayerMask layers;
+    [SerializeField] private bool debugDraw = false;
 
     // Update is called once per frame
     void Update()
@@ -26,6 +27,7 @@ public class DeathWater : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        if (!debugDraw) return;
         Gizmos.color = new Color(0,0,1,0.5f);
         Gizmos.DrawCube(this.transform.position + offset, halfSize * 2);
     }
