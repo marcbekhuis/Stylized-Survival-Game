@@ -8,11 +8,13 @@ public class PhotonRoomList : MonoBehaviourPunCallbacks
 {
     [SerializeField] private RoomDisplay roomDisplayPrefab;
     [SerializeField] private Transform roomDisplayParent;
+    [SerializeField] private GameObject feedbackText;
 
     private Dictionary<string, RoomDisplay> roomsDisplay = new Dictionary<string, RoomDisplay>();
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
+        feedbackText.SetActive(roomList.Count <= 0);
         foreach (var room in roomList)
         {
             if (room.RemovedFromList)
