@@ -38,7 +38,7 @@ public class CharacterMovement : MonoBehaviourPun
     protected virtual void Awake()
     {
         characterController = GetComponent<CharacterController>();
-        Oldposition = this.transform.position;
+        Oldposition = new Vector2(this.transform.position.y, this.transform.position.z);
     }
 
     // Update is called once per frame

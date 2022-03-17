@@ -12,7 +12,6 @@ public class Animation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        animator = gameObject.GetComponentInChildren<Animator>();
         characterMovement = GetComponent<CharacterMovement>();
         UseableItem.onItemUsePrimairy += PrimairyAnimation;
     }
@@ -28,7 +27,7 @@ public class Animation : MonoBehaviour
                 animator.SetBool("Idle", true);
                 break;
             case CharacterMovement.MovementType.Walk:
-                animator.SetBool("Walking", true);
+                animator.SetBool("Walk", true);
                 animator.SetBool("Run", false);
                 animator.SetBool("Idle", false);
                 break;
@@ -44,19 +43,19 @@ public class Animation : MonoBehaviour
         if (characterMovement.Jumping)
         {
 
-            animator.SetFloat("Jump", 1);
+            animator.SetInteger("Jump", 1);
         }
         else if (!characterMovement.GroundCheck && !jump)
         {
             jump = true;
-            animator.SetFloat("Jump", 2);
+            animator.SetInteger("Jump", 2);
         }
         else if (characterMovement.GroundCheck && jump)
         {
             jump = false;
-            animator.SetFloat("Jump", 3);
+            animator.SetInteger("Jump", 3);
         }
-        else animator.SetFloat("Jump", 0);
+        else animator.SetInteger("Jump", 0);
     }
 
     private void PrimairyAnimation(UseableItem useableItem)

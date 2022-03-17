@@ -24,6 +24,7 @@ public class EnemySpawner : MonoBehaviourPunCallbacks
         public float minSpawnRadius = 10;
         public float maxSpawnRadius = 40;
         public Vector3 groundOffset = new Vector3(0,1,0);
+        public Transform[] initialSpawns;
 
         [HideInInspector] public float nextSpawn = 0;
         [HideInInspector] public int amountSpawned = 0;
@@ -45,9 +46,23 @@ public class EnemySpawner : MonoBehaviourPunCallbacks
         else instance = this;
     }
 
+    private void Start()
+    {
+        if (!photonView.IsMine) return;
+
+        foreach (var enemyPrefab in enemyPrefabs)
+        {
+            foreach (var initialSpawn in enemyPrefab.initialSpawns)
+            {
+                PhotonNetwork.Instantiate(enemyPrefab.prefab.name, initialSpawn.position, new Quaternion(0, 0, 0, 0));
+            }
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if (!photonView.IsMine) return;
         if (players.Count <= 0) return;
 
         foreach (var enemyPrefab in enemyPrefabs)

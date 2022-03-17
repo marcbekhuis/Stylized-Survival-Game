@@ -11,6 +11,7 @@ public class AIMovement : CharacterMovement
     [SerializeField] private Transform headOrigin;
     [SerializeField] private float minRandomPointHeight = 0;
     [SerializeField] private float maxRandomPointHeight = 500;
+    [SerializeField] private int agentID = 0;
 
     [SerializeField] private bool showDebuging;
 
@@ -32,8 +33,11 @@ public class AIMovement : CharacterMovement
 
         if (target)
         {
-            NavMesh.CalculatePath(transform.position, target.position, NavMesh.AllAreas, path);
-            if (path.corners.Length > 0)
+            NavMeshQueryFilter agentFilter = new NavMeshQueryFilter();
+            agentFilter.agentTypeID = agentID;
+            agentFilter.areaMask = NavMesh.AllAreas;
+            NavMesh.CalculatePath(transform.position, target.position, agentFilter, path);
+            if (path.corners.Length > 1)
             {
                 if (Vector3.Distance(transform.position, path.corners[1]) > cornerAcceptanceRange)
                 {

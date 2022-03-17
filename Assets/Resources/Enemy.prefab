@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 185305315}
   - component: {fileID: 185305316}
   - component: {fileID: 611084825}
+  - component: {fileID: 5451025976250797028}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Untagged
@@ -105,6 +106,7 @@ MonoBehaviour:
   headOrigin: {fileID: 1492837786}
   minRandomPointHeight: 0
   maxRandomPointHeight: 500
+  agentID: 0
   showDebuging: 1
 --- !u!143 &317443901949528541
 CharacterController:
@@ -193,6 +195,20 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 512
+--- !u!114 &5451025976250797028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 317443901949528532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9ee1336d761d014fb48b3f30426d893, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 95319450818033682}
+  characterMovement: {fileID: 0}
 --- !u!1001 &1156303746
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -457,6 +473,12 @@ PrefabInstance:
 --- !u!4 &4215788225451100 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4215789226532830, guid: 7f931d4b5c97d194d8726ddf5acdd440,
+    type: 3}
+  m_PrefabInstance: {fileID: 1156303746}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &95319450818033682 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 95319451835724688, guid: 7f931d4b5c97d194d8726ddf5acdd440,
     type: 3}
   m_PrefabInstance: {fileID: 1156303746}
   m_PrefabAsset: {fileID: 0}
