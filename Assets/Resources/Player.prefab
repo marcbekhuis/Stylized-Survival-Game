@@ -420,15 +420,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sizeVar: {x: 9, y: 1}
   startingItems:
-  - item: {fileID: 11400000, guid: 928cdffd8f2a35440a11105e219b4ffe, type: 2}
-    amount: 1
   - item: {fileID: 11400000, guid: 0bd0133e282214748966a24b5db85875, type: 2}
     amount: 1
-  - item: {fileID: 11400000, guid: 89fb46086d7e2af499fc07ebe9d6518b, type: 2}
+  - item: {fileID: 11400000, guid: d5e001c2c7ceca741a8dcf7733fbd50a, type: 2}
     amount: 1
-  - item: {fileID: 11400000, guid: 4bdd12e253db8974c8c0e14d23291be0, type: 2}
-    amount: 1
-  - item: {fileID: 11400000, guid: d054385f453e7f042bea1d3172cefefb, type: 2}
+  - item: {fileID: 11400000, guid: a929086a6c3b5ec45927c283bdc75e6c, type: 2}
+    amount: 10
+  - item: {fileID: 11400000, guid: 08e3fb2023eb900418a22867ee6e175d, type: 2}
+    amount: 10
+  - item: {fileID: 11400000, guid: 7f0fbc62066e01f45a8901195ec5727b, type: 2}
+    amount: 10
+  - item: {fileID: 11400000, guid: 340edd051621e5d48833e32bf852a9aa, type: 2}
     amount: 10
   primairyAction: 6
   secondairyAction: 6
