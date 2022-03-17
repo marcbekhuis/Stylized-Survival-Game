@@ -35,7 +35,6 @@ public class UseableItem : DurabilityItem
 
     public virtual void Select(Transform userTransform, Transform itemTransform, Inventory[] inventories)
     {
-        OnItemSelected();
     }
 
     protected void OnItemSelected()
@@ -45,7 +44,6 @@ public class UseableItem : DurabilityItem
 
     public virtual void Deselect(Transform userTransform, Transform itemTransform, Inventory[] inventories)
     {
-        OnItemDeselected();
     }
 
     protected void OnItemDeselected()
@@ -55,7 +53,6 @@ public class UseableItem : DurabilityItem
 
     public virtual void UsePrimairy(Transform userTransform, Transform itemTransform, Inventory[] inventories)
     {
-        OnItemUsePrimairy();
     }
 
     protected void OnItemUsePrimairy()

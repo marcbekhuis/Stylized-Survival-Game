@@ -49,7 +49,7 @@ public class Weapon : UseableItem
         if (GameManager.instance.gameTime < cooldownTime) return;
         cooldownTime = GameManager.instance.gameTime + cooldown;
 
-        base.UsePrimairy(userTransform, itemTransform, inventories);
+        OnItemUsePrimairy();
         
         foreach (var target in GetTargets())
         {

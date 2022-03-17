@@ -7,7 +7,8 @@ public class InputSystemController : InputSystem
     public new Dictionary<InputActions, List<KeyCode>> keybinds = new Dictionary<InputActions, List<KeyCode>>
     {
         { InputActions.Sprint, new List<KeyCode>{KeyCode.JoystickButton0}},
-        { InputActions.UseTool, new List<KeyCode>{KeyCode.JoystickButton0}},
+        { InputActions.PrimairAttack, new List<KeyCode>{KeyCode.JoystickButton0}},
+        { InputActions.SecondairAttack, new List<KeyCode>{KeyCode.JoystickButton0}},
         { InputActions.DropItem, new List<KeyCode>{KeyCode.JoystickButton0}},
         { InputActions.OpenConsole, new List<KeyCode>{KeyCode.JoystickButton0}},
         { InputActions.OpenInventory, new List<KeyCode>{KeyCode.JoystickButton0}},

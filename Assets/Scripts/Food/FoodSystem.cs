@@ -9,6 +9,7 @@ public class FoodSystem : MonoBehaviourPun
     public event OnFoodChange onFoodChanged = delegate { };
     [SerializeField] private float food;
     [SerializeField] private float maxFood;
+    [SerializeField] private float healAbove;
     [SerializeField] private float damagePerSec = 1;
     [SerializeField] private float healingPerSec = 1;
     [SerializeField] private float idleFoodConsumption = 0.1f;
@@ -34,7 +35,7 @@ public class FoodSystem : MonoBehaviourPun
             {
                 healthSystem.Health -= damagePerSec * Time.deltaTime;
             }
-            if(food >= maxFood)
+            if(food >= healAbove)
             {
                 healthSystem.Health += healingPerSec * Time.deltaTime;
             }
