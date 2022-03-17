@@ -65,7 +65,8 @@ public class FoodSystem : MonoBehaviourPun
         {
             food = Mathf.Clamp(value, 0, maxFood);
             onFoodChanged(food, maxFood);
-            photonView.RPC("RPCSyncFood", RpcTarget.Others, food, maxFood);
+            if(photonView.IsMine)
+                photonView.RPC("RPCSyncFood", RpcTarget.Others, food, maxFood);
         }
     }
 

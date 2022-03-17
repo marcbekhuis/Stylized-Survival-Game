@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using UnityEngine.UI;
+using Photon.Realtime;
 
 public class LoginPhoton : MonoBehaviourPunCallbacks
 {
@@ -11,6 +12,8 @@ public class LoginPhoton : MonoBehaviourPunCallbacks
     [SerializeField] private Text errorMessage;
     [SerializeField] private GameObject loginPanel;
     [SerializeField] private GameObject mainMenuPanel;
+
+    private TypedLobby customLobby = new TypedLobby("ListingLobby", LobbyType.Default);
 
     private new void OnEnable()
     {
@@ -39,6 +42,6 @@ public class LoginPhoton : MonoBehaviourPunCallbacks
         loginButton.interactable = true;
         loginPanel.SetActive(false);
         mainMenuPanel.SetActive(true);
-        PhotonNetwork.JoinLobby();
+        PhotonNetwork.JoinLobby(customLobby);
     }
 }

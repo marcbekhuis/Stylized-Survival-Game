@@ -14,7 +14,6 @@ public class PhotonRoomList : MonoBehaviourPunCallbacks
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
-        feedbackText.SetActive(roomList.Count <= 0);
         foreach (var room in roomList)
         {
             if (room.RemovedFromList)
@@ -39,5 +38,30 @@ public class PhotonRoomList : MonoBehaviourPunCallbacks
                 roomsDisplay[room.Name].gameObject.SetActive(room.IsOpen && room.IsVisible);
             }
         }
+        feedbackText.SetActive(roomList.Count <= 0);
+    }
+
+    public override void OnJoinedLobby()
+    {
+        ClearRooms();
+    }
+
+    public override void OnLeftLobby()
+    {
+        ClearRooms();
+    }
+
+    public override void OnDisconnected(DisconnectCause cause)
+    {
+        ClearRooms();
+    }
+
+    private void ClearRooms()
+    {
+        foreach (var display in roomsDisplay)
+        {
+            Destroy(display.Value.gameObject);
+        }
+        roomsDisplay.Clear();
     }
 }

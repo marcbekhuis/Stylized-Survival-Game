@@ -19,6 +19,7 @@ public class HotbarInventory : Inventory
 
     private new void Start()
     {
+        if (!photonView.IsMine) return;
         base.Start();
         SelectItem(false);
     }

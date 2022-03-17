@@ -12,7 +12,8 @@ public class HealthSystem : MonoBehaviourPun
     public float Health { get=>health; set {
             health = Mathf.Clamp(value, 0, maxHealth);
             onHealthChanged(health, maxHealth);
-            photonView.RPC("RPCSyncHealth", RpcTarget.Others, health, maxHealth);
+            if (photonView.IsMine)
+                photonView.RPC("RPCSyncHealth", RpcTarget.Others, health, maxHealth);
             if(health <= 0)
             {
                 OnDeath();
@@ -26,7 +27,7 @@ public class HealthSystem : MonoBehaviourPun
     }
 
     [PunRPC]
-    private void RPCSyncHealth(float health, float maxHealth)
+    protected void RPCSyncHealth(float health, float maxHealth)
     {
         this.health = health;
         this.maxHealth = maxHealth;

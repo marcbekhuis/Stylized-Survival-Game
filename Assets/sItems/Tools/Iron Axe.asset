@@ -26,4 +26,4 @@ MonoBehaviour:
   targetLayer:
     serializedVersion: 2
     m_Bits: 896
-  resourceType: 0
+  resourceType: 1

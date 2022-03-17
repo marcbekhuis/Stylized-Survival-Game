@@ -57,12 +57,13 @@ public class CharacterMovement : MonoBehaviourPun
 
     protected virtual void AfterUpdate()
     {
-        photonView.RPC("RPCSyncTransform", RpcTarget.Others, transform.position, transform.rotation);
+        if (photonView.IsMine)
+            photonView.RPC("RPCSyncTransform", RpcTarget.Others, transform.position, transform.rotation);
         CalculateVelocity();
     }
 
     [PunRPC]
-    private void RPCSyncTransform(Vector3 position, Quaternion rotation)
+    protected void RPCSyncTransform(Vector3 position, Quaternion rotation)
     {
         transform.position = position;
         transform.rotation = rotation;
