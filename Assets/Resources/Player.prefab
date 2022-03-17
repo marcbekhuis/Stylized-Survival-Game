@@ -375,7 +375,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents: []
-  sceneViewId: 0
+  sceneViewId: 3
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!136 &866230923
@@ -420,7 +420,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sizeVar: {x: 9, y: 1}
   startingItems:
-  - item: {fileID: 11400000, guid: 38b76b7f6ca81344c8830b1a94293bd8, type: 2}
+  - item: {fileID: 11400000, guid: 928cdffd8f2a35440a11105e219b4ffe, type: 2}
+    amount: 1
+  - item: {fileID: 11400000, guid: 0bd0133e282214748966a24b5db85875, type: 2}
+    amount: 1
+  - item: {fileID: 11400000, guid: 89fb46086d7e2af499fc07ebe9d6518b, type: 2}
+    amount: 1
+  - item: {fileID: 11400000, guid: 4bdd12e253db8974c8c0e14d23291be0, type: 2}
     amount: 1
   primairyAction: 6
   secondairyAction: 6
@@ -653,6 +659,10 @@ PrefabInstance:
     - target: {fileID: 1173177213022252, guid: 7e6e29f21a00d5f499e21eb93d6fabaa, type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1173177213022252, guid: 7e6e29f21a00d5f499e21eb93d6fabaa, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1180969847049706, guid: 7e6e29f21a00d5f499e21eb93d6fabaa, type: 3}
       propertyPath: m_Layer
