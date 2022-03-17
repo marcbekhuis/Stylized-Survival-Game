@@ -47,7 +47,8 @@ public class Item : ScriptableObject
 
     public virtual string GetTooltipText()
     {
-        return description + "\n" +
+        return this.name + "\n" +
+            "\n" + description + "\n" +
             "\n" + "Amount: " + amount + "/" + maxStack + 
             "\n" + "Weight: " + weight * amount;
     }
