@@ -8,7 +8,6 @@ public class DayNightCycle : MonoBehaviourPunCallbacks
 {
 
     public GameObject light;
-    public int durationOfHour;
     public float durationOfDay;
     [Range(0, 24)] public float timeOfDay = 12;
 
