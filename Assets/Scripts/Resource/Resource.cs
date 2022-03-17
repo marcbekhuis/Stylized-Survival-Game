@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Photon.Pun;
+using Photon.Realtime;
 
-public class Resource : MonoBehaviour
+public class Resource : MonoBehaviourPunCallbacks
 {
     [SerializeField] private ResourceTypes resourceType;
     [SerializeField] private ItemWithAmount[] items;
@@ -20,6 +22,7 @@ public class Resource : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //if(photonView.IsMine)
         ageSec = GetAgeFromSize();
         collider = GetComponent<Collider>();
     }
@@ -98,5 +101,32 @@ public class Resource : MonoBehaviour
         respawnTime = GameManager.instance.gameTime + respawnCooldown;
         collider.enabled = false;
         destroyed = true;
+        //photonView.RPC("RPCSyncHarvest", RpcTarget.All);
     }
+
+    //public override void OnPlayerEnteredRoom(Player newPlayer)
+    //{
+    //    if (!photonView.IsMine) return;
+    //    photonView.RPC("RPCSyncPlayerConnect", newPlayer, ageSec, respawnTime, destroyed);
+    //}
+
+    //[PunRPC]
+    //private void RPCSyncPlayerConnect(float ageSec, float respawnTime, bool destroyed)
+    //{
+    //    this.ageSec = ageSec;
+    //    this.respawnTime = respawnTime;
+    //    this.destroyed = destroyed;
+    //}
+
+    //[PunRPC]
+    //private void RPCSyncHarvest()
+    //{
+    //    foreach (Transform lod in transform)
+    //    {
+    //        lod.gameObject.SetActive(false);
+    //    }
+    //    respawnTime = GameManager.instance.gameTime + respawnCooldown;
+    //    collider.enabled = false;
+    //    destroyed = true;
+    //}
 }
