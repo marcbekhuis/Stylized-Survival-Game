@@ -30,6 +30,7 @@ public class RoomDisplay : MonoBehaviour
 
     private void JoinRoom()
     {
+        LoadingMenu.instance.EnableLoadingMenu();
         PhotonNetwork.JoinRoom(room.Name);
     }
 }

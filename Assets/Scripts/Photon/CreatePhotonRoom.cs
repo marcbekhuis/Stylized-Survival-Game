@@ -37,6 +37,7 @@ public class CreatePhotonRoom : MonoBehaviourPunCallbacks
     {
         createRoomButton.interactable = true;
         errorMessage.text = "";
+        LoadingMenu.instance.EnableLoadingMenu();
         PhotonNetwork.LoadLevel(sceneName);
     }
 
