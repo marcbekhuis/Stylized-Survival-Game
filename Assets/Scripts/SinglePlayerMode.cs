@@ -22,6 +22,7 @@ public class SinglePlayerMode : MonoBehaviour
     {
         PhotonNetwork.OfflineMode = true;
         PhotonNetwork.CreateRoom("Singleplayer");
+        LoadingMenu.instance.EnableLoadingMenu();
         PhotonNetwork.LoadLevel(sceneName);
     }
 }
