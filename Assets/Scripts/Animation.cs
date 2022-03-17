@@ -1,19 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
-public class Animation : MonoBehaviour
+public class Animation : MonoBehaviourPun
 {
     [SerializeField] private Animator animator;
     [SerializeField] private CharacterMovement characterMovement;
-    
+    [SerializeField] private bool isPlayer = false;
+    [SerializeField] private AIMeleeAttack aiMeleeAttack;
+
     private bool jump = false;
 
     // Start is called before the first frame update
     void Start()
     {
         characterMovement = GetComponent<CharacterMovement>();
-        UseableItem.onItemUsePrimairy += PrimairyAnimation;
+        if(photonView.IsMine && isPlayer)
+            UseableItem.onItemUsePrimairy += PrimairyAnimation;
+        else if(aiMeleeAttack)
+        {
+            aiMeleeAttack.onAttack += AttackAnimation;
+        }
     }
 
     // Update is called once per frame
@@ -59,6 +67,11 @@ public class Animation : MonoBehaviour
     }
 
     private void PrimairyAnimation(UseableItem useableItem)
+    {
+        animator.SetTrigger("Attack");
+    }
+
+    private void AttackAnimation()
     {
         animator.SetTrigger("Attack");
     }
