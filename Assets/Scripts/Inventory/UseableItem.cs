@@ -18,6 +18,14 @@ public class UseableItem : DurabilityItem
     {
     }
 
+    public static void ClearEvents()
+    {
+        onItemSelected = delegate { };
+        onItemDeselected = delegate { };
+        onItemUsePrimairy = delegate { };
+        onItemUseSecundairy = delegate { };
+    }
+
     public override Item Create(Item item, Inventory inventory, int amount = 1)
     {
         Item newItem = new UseableItem((UseableItem)item, inventory, amount);

@@ -32,12 +32,39 @@ public class EnemySpawner : MonoBehaviourPunCallbacks
 
     public void AddPlayerTransform(Transform player)
     {
-        players.Add(player);
+        if (photonView.IsMine)
+            players.Add(player);
+        else
+            photonView.RPC("RPCSyncAddPlayer", photonView.Owner, player.name);
+    }
+
+    [PunRPC]
+    private void RPCSyncAddPlayer(string name)
+    {
+        players.Add(GameObject.Find(name).transform);
     }
 
     public void RemovePlayerTransform(Transform player)
     {
-        players.Remove(player);
+        if (photonView.IsMine)
+            players.Remove(player);
+        else
+            photonView.RPC("RPCSyncRemovePlayer", photonView.Owner, player.name);
+    }
+
+    [PunRPC]
+    private void RPCSyncRemovePlayer(string name)
+    {
+        Transform searchPlayer = null;
+        foreach (var player in players)
+        {
+            if (player.name == name)
+            {
+                searchPlayer = player;
+                break;
+            }
+        }
+        players.Remove(searchPlayer);
     }
 
     private void Awake()

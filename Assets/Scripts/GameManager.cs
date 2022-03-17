@@ -10,6 +10,10 @@ public class GameManager : MonoBehaviourPunCallbacks
     [SerializeField] private string playerPrefab;
     [SerializeField] private Transform spawnPoints;
     [SerializeField] private SetDisplayVariables displayVariables;
+    [Space]
+    [SerializeField] private GameObject deathCamera;
+    [SerializeField] private GameObject respawnMenu;
+    [SerializeField] private GameObject gameUI;
 
     public bool inventoryOpen = false;
     public bool playerPaused = false;
@@ -45,6 +49,16 @@ public class GameManager : MonoBehaviourPunCallbacks
     public Vector3 Gravity(float time) 
     { 
         return Vector3.up * (gravity * (time * gravityTimeMultiplier.Evaluate(time))) * Time.deltaTime; 
+    }
+
+    public void ToggleDeathScreen(bool active)
+    {
+        gameUI.SetActive(!active);
+        deathCamera.SetActive(active);
+        respawnMenu.SetActive(active);
+        if (active) Cursor.lockState = CursorLockMode.None;
+        else Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = active;
     }
 
     public void SpawnPlayerCharacter()
