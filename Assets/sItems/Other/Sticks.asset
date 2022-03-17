@@ -15,7 +15,7 @@ MonoBehaviour:
   description: Use this to create tools
   weight: 0
   maxStack: 20
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 9491c972d76a8a841a46832fdab13faf, type: 3}
   sprite: {fileID: 0}
   amount: 0
   inventory: {fileID: 0}

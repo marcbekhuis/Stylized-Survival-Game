@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: "The arrow\u2019s big brother"
   weight: 0
-  maxStack: 0
+  maxStack: 1
   icon: {fileID: 21300000, guid: 74fef3385f7ac844fbb6aece54ad3c4b, type: 3}
   sprite: {fileID: 0}
   amount: 0
