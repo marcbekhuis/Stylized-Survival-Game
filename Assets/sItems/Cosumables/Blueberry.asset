@@ -20,6 +20,6 @@ MonoBehaviour:
   amount: 0
   inventory: {fileID: 0}
   maxDurability: 0
-  foodRegen: 0
-  healthRegen: -50
+  foodRegen: 100
+  healthRegen: -49.9
   cooldown: 0
