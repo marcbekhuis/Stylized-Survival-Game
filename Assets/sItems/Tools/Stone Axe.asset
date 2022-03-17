@@ -15,7 +15,7 @@ MonoBehaviour:
   description: A better way of chopping trees
   weight: 0
   maxStack: 1
-  icon: {fileID: 21300000, guid: 172774604c1bee84185a69041576525b, type: 3}
+  icon: {fileID: 21300000, guid: 8c018a69a128b4449a02e5b53cd971a9, type: 3}
   sprite: {fileID: 0}
   amount: 0
   inventory: {fileID: 0}

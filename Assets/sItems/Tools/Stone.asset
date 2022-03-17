@@ -15,7 +15,7 @@ MonoBehaviour:
   description: 'Create powerful tools with this, or just use it as a weapon.  '
   weight: 0
   maxStack: 20
-  icon: {fileID: 21300000, guid: fe025e83f69d0b54f8a4fe3c7c128fd7, type: 3}
+  icon: {fileID: 21300000, guid: 4b12b8ce81bfcd04a92d41463275022e, type: 3}
   sprite: {fileID: 0}
   amount: 0
   inventory: {fileID: 0}

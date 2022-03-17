@@ -15,7 +15,7 @@ MonoBehaviour:
   description: Use this to shred trees into pieces
   weight: 0
   maxStack: 1
-  icon: {fileID: 21300000, guid: 172774604c1bee84185a69041576525b, type: 3}
+  icon: {fileID: 21300000, guid: 4eb9c5e24a7c862408dade5818db0f2a, type: 3}
   sprite: {fileID: 0}
   amount: 0
   inventory: {fileID: 0}

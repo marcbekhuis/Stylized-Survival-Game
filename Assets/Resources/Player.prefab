@@ -375,7 +375,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents: []
-  sceneViewId: 3
+  sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!136 &866230923
@@ -428,6 +428,8 @@ MonoBehaviour:
     amount: 1
   - item: {fileID: 11400000, guid: 4bdd12e253db8974c8c0e14d23291be0, type: 2}
     amount: 1
+  - item: {fileID: 11400000, guid: d054385f453e7f042bea1d3172cefefb, type: 2}
+    amount: 10
   primairyAction: 6
   secondairyAction: 6
   inputActions: 0a0000000b0000000c0000000d0000000e0000000f000000100000001100000012000000
