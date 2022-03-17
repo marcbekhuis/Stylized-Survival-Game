@@ -11,6 +11,9 @@ public class AIMeleeAttack : MonoBehaviourPun
     [SerializeField] private Transform attackOrigin;
     [SerializeField] private LayerMask targetLayer;
 
+    public delegate void Attack();
+    public event Attack onAttack = delegate { };
+
     private float nextAttack = 0;
 
     // Update is called once per frame
@@ -26,6 +29,7 @@ public class AIMeleeAttack : MonoBehaviourPun
                 {
                     healthSystem.Health -= damage;
                     nextAttack = GameManager.instance.gameTime + AttackCooldown;
+                    onAttack();
                     photonView.RPC("RPCSyncAttackCooldown", RpcTarget.Others, nextAttack);
                     return;
                 }

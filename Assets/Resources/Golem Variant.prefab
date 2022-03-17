@@ -303,6 +303,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 292385835452138781}
   characterMovement: {fileID: 0}
+  isPlayer: 0
+  aiMeleeAttack: {fileID: 6287376971736249176}
 --- !u!114 &3971203521739415743
 MonoBehaviour:
   m_ObjectHideFlags: 0

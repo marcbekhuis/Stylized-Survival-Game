@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 614d4bae7c9ea824fba1f86c203ef8a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 5
+  radius: 3
   damage: 5
   AttackCooldown: 3
   attackOrigin: {fileID: 1492837786}
@@ -209,6 +209,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 95319450818033682}
   characterMovement: {fileID: 0}
+  isPlayer: 0
+  aiMeleeAttack: {fileID: 611084825}
 --- !u!1001 &1156303746
 PrefabInstance:
   m_ObjectHideFlags: 0
