@@ -17,9 +17,8 @@ MonoBehaviour:
   maxStack: 20
   icon: {fileID: 21300000, guid: 4a39cb4b272639541b7bd5ac0649acf7, type: 3}
   sprite: {fileID: 0}
-  amount: 0
   inventory: {fileID: 0}
   maxDurability: 0
-  foodRegen: 5
+  foodRegen: 10
   healthRegen: 0
-  cooldown: 3
+  cooldown: 0.1
