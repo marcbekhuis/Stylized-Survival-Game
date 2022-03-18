@@ -41,5 +41,7 @@ public class Consumable : UseableItem
 
         userTransform.GetComponent<HealthSystem>().Health += healthRegen;
         userTransform.GetComponent<FoodSystem>().Food += foodRegen;
+        Amount -= 1;
+        if (Amount <= 0) inventory.RemoveItem(this);
     }
 }

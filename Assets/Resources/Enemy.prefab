@@ -96,7 +96,7 @@ MonoBehaviour:
   groundCheckSize: {x: 1, y: 0.1, z: 1}
   groundCheckMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 1088
   radius: 20
   cornerAcceptanceRange: 1
   targetAcceptanceRange: 2

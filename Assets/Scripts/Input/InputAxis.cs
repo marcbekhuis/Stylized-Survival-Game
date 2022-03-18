@@ -5,5 +5,6 @@ using UnityEngine;
 public enum InputAxis
 {
     Horizontal,
-    Vertical
+    Vertical,
+    MouseScrollWheel,
 }

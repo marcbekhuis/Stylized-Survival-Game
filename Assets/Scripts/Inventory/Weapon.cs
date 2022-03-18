@@ -9,6 +9,7 @@ public class Weapon : UseableItem
     public float range = 2;
     public float damage = 2;
     public float cooldown = 1;
+    public float durabilityDamage = 1;
     public LayerMask targetLayer;
 
     protected float cooldownTime;
@@ -50,6 +51,7 @@ public class Weapon : UseableItem
         cooldownTime = GameManager.instance.gameTime + cooldown;
 
         OnItemUsePrimairy();
+        Durability -= durabilityDamage;
         
         foreach (var target in GetTargets())
         {

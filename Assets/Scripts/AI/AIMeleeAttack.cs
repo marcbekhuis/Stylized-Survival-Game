@@ -5,16 +5,16 @@ using Photon.Pun;
 
 public class AIMeleeAttack : MonoBehaviourPun
 {
-    [SerializeField] private float radius = 5;
-    [SerializeField] private float damage = 5;
-    [SerializeField] private float AttackCooldown = 3;
-    [SerializeField] private Transform attackOrigin;
-    [SerializeField] private LayerMask targetLayer;
+    [SerializeField] protected float radius = 5;
+    [SerializeField] protected float damage = 5;
+    [SerializeField] protected float AttackCooldown = 3;
+    [SerializeField] protected Transform attackOrigin;
+    [SerializeField] protected LayerMask targetLayer;
 
     public delegate void Attack();
     public event Attack onAttack = delegate { };
 
-    private float nextAttack = 0;
+    protected float nextAttack = 0;
 
     // Update is called once per frame
     void Update()
@@ -29,7 +29,7 @@ public class AIMeleeAttack : MonoBehaviourPun
                 {
                     healthSystem.Health -= damage;
                     nextAttack = GameManager.instance.gameTime + AttackCooldown;
-                    onAttack();
+                    CallAttack();
                     photonView.RPC("RPCSyncAttackCooldown", RpcTarget.Others, nextAttack);
                     return;
                 }
@@ -38,9 +38,14 @@ public class AIMeleeAttack : MonoBehaviourPun
     }
 
     [PunRPC]
-    private void RPCSyncAttackCooldown(float nextAttack)
+    protected void RPCSyncAttackCooldown(float nextAttack)
     {
         this.nextAttack = nextAttack;
+    }
+
+    protected void CallAttack()
+    {
+        onAttack();
     }
 
     private void OnDrawGizmos()

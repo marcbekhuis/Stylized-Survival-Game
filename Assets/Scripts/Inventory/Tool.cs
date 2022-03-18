@@ -30,6 +30,7 @@ public class Tool : Weapon
         if (GameManager.instance.gameTime < cooldownTime) return;
         cooldownTime = GameManager.instance.gameTime + cooldown;
         OnItemUsePrimairy();
+        Durability -= durabilityDamage;
 
         foreach (var target in base.GetTargets())
         {

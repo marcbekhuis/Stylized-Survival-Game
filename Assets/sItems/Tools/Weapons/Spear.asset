@@ -23,6 +23,7 @@ MonoBehaviour:
   range: 7
   damage: 3
   cooldown: 2
+  durabilityDamage: 1
   targetLayer:
     serializedVersion: 2
     m_Bits: 768

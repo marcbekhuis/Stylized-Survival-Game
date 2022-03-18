@@ -93,10 +93,10 @@ public class Inventory : MonoBehaviourPun
                 if (slots[x, y])
                 {
                     if (slots[x, y].name.ToLower() != item.name.ToLower()) continue;
-                    if (slots[x, y].amount >= slots[x, y].maxStack) continue;
-                    int amountAvailable = slots[x, y].maxStack - slots[x, y].amount;
+                    if (slots[x, y].Amount >= slots[x, y].maxStack) continue;
+                    int amountAvailable = slots[x, y].maxStack - slots[x, y].Amount;
                     int amountToAdd = Mathf.Clamp(amountAvailable, 0, amount);
-                    slots[x, y].amount += amountToAdd;
+                    slots[x, y].Amount += amountToAdd;
                     amount -= amountToAdd;
                     OnInventoryChanged();
                     if (amount <= 0) return slots[x, y];
@@ -164,7 +164,7 @@ public class Inventory : MonoBehaviourPun
         foreach (var slot in slots)
         {
             if (!slot) continue;
-            if (slot.name.ToLower() == item.name.ToLower()) amount += slot.amount;
+            if (slot.name.ToLower() == item.name.ToLower()) amount += slot.Amount;
         }
         return amount;
     }
@@ -188,7 +188,7 @@ public class Inventory : MonoBehaviourPun
         foreach (var slot in slots)
         {
             if (slot.name.ToLower() == item.name.ToLower())
-                if (slot.amount < slot.maxStack) return true;
+                if (slot.Amount < slot.maxStack) return true;
         }
         return false;
     }

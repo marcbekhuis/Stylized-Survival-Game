@@ -13,8 +13,11 @@ public class Item : ScriptableObject
     public Sprite icon;
     public Sprite sprite;
 
-    [HideInInspector] public int amount = 0;
+    [HideInInspector] private int amount = 0;
     [HideInInspector] public Inventory inventory;
+
+    public delegate void AmountUpdate(int amount);
+    public event AmountUpdate OnAmountUpdate;
 
     public Item(string description, float weight, int maxStack, Sprite icon, Sprite sprite, Inventory inventory, int amount = 1)
     {
@@ -36,6 +39,15 @@ public class Item : ScriptableObject
         this.sprite = item.sprite;
         this.inventory = inventory;
         this.amount = amount;
+    }
+
+    public int Amount { 
+        get => amount; 
+        set
+        {
+            amount = value;
+            OnAmountUpdate(amount);
+        } 
     }
 
     public virtual Item Create(Item item, Inventory inventory, int amount = 1)

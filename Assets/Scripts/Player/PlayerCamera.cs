@@ -8,6 +8,7 @@ public class PlayerCamera : MonoBehaviourPun
     [SerializeField] private float rotationSpeed = 1;
     [SerializeField] private float minAngle = -40;
     [SerializeField] private float maxAngle = 80;
+    [SerializeField] private Transform headTrack;
     public static PlayerCamera instance;
     public new Camera camera;
 
@@ -28,6 +29,7 @@ public class PlayerCamera : MonoBehaviourPun
 
     private void Update()
     {
+        this.transform.position = headTrack.position;
         if (GameManager.instance.playerGameInputBlocked) return;
         currentAngle = Mathf.Clamp(currentAngle + Input.GetAxis("Mouse Y") * rotationSpeed * Time.deltaTime, minAngle, maxAngle);
         transform.localEulerAngles = new Vector3(currentAngle, 0, 0);

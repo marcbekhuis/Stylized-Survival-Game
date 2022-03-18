@@ -47,7 +47,8 @@ public class ItemDisplay : MonoBehaviour
         }
         else
         {
-            amountText.text = item.amount.ToString();
+            amountText.text = item.Amount.ToString();
+            item.OnAmountUpdate += UpdateAmount;
             amountText.gameObject.SetActive(true);
         }
         iconImage.sprite = item.icon;
@@ -62,6 +63,11 @@ public class ItemDisplay : MonoBehaviour
             }
         }
         durabilityBar.gameObject.SetActive(false);
+    }
+
+    public void UpdateAmount(int amount)
+    {
+        amountText.text = amount.ToString();
     }
 
     public bool MouseOver(out Item item)

@@ -39,7 +39,13 @@ public class DurabilityItem : Item
         get => durability; 
         set
         {
-            durability = Mathf.Clamp(durability + value, 0, maxDurability);
+            durability = Mathf.Clamp(value, 0, maxDurability);
+            if(durability <= 0) 
+            {
+                Amount -= 1;
+                if (Amount <= 0) inventory.RemoveItem(this);
+                else durability = maxDurability;
+            }
             onDurabilityChanged(durability, maxDurability);
         } 
     }

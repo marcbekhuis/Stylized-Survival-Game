@@ -53,7 +53,7 @@ public class InputSystem
                     return output;
                 }
             default:
-                return 0;
+                return Input.GetAxis(axis.ToString());
         }
     }
 

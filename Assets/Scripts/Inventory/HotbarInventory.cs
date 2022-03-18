@@ -27,7 +27,7 @@ public class HotbarInventory : Inventory
     private void Update()
     {
         if (!photonView.IsMine) return;
-        if (GameManager.instance.inventoryOpen) return;
+        if (GameManager.instance.playerGameInputBlocked) return;
 
         if (selectedItem)
         {
@@ -61,6 +61,24 @@ public class HotbarInventory : Inventory
                 return;
             }
         }
+
+        float wheelScroll = InputManager.instance.GetAxis(InputAxis.MouseScrollWheel);
+        if (wheelScroll > 0)
+        {
+            DeselectItem();
+            SetIndex(index + 1);
+            SelectItem();
+            OnInventoryChanged();
+            return;
+        }
+        else if (wheelScroll < 0)
+        {
+            DeselectItem();
+            SetIndex(index - 1);
+            SelectItem();
+            OnInventoryChanged();
+            return;
+        }
     }
 
     private void OnDrawGizmos()
@@ -83,6 +101,9 @@ public class HotbarInventory : Inventory
 
     public void SetIndex(int i)
     {
+        if (i >= slots.GetLength(0)) i -= slots.GetLength(0);
+        else if(i < 0) i += slots.GetLength(0);
+
         int x = i;
         int y;
         for (y = 0; y < Mathf.FloorToInt((float)i / (float)slots.GetLength(0)); y++)
