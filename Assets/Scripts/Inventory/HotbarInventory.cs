@@ -67,7 +67,7 @@ public class HotbarInventory : Inventory
         if (wheelScroll > 0)
         {
             DeselectItem();
-            SetIndex(index + 1);
+            SetIndex(index - 1);
             SelectItem();
             OnInventoryChanged();
             return;
@@ -75,7 +75,7 @@ public class HotbarInventory : Inventory
         else if (wheelScroll < 0)
         {
             DeselectItem();
-            SetIndex(index - 1);
+            SetIndex(index + 1);
             SelectItem();
             OnInventoryChanged();
             return;
