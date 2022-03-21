@@ -97,7 +97,7 @@ public class Resource : MonoBehaviourPunCallbacks
         {
             foreach (var inventory in inventories)
             {
-                if (inventory.HasSpace())
+                if (inventory.HasSpace() || inventory.HasItemSlotWithSpace(item.item))
                 {
                     inventory.AddItem(item.item, item.amount);
                     break;
