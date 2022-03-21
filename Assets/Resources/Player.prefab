@@ -440,6 +440,7 @@ MonoBehaviour:
   secondairyAction: 7
   inputActions: 0b0000000c0000000d0000000e0000000f00000010000000110000001200000013000000
   itemTransform: {fileID: 0}
+  mainInventory: {fileID: 4727966502210427219}
   index2d: {x: 0, y: 0}
   index: 0
 --- !u!114 &2922445378222145122
@@ -484,6 +485,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   maxHealth: 50
+  hitParticle: {fileID: 0}
 --- !u!114 &-7541117096884739190
 MonoBehaviour:
   m_ObjectHideFlags: 0

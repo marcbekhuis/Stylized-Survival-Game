@@ -283,6 +283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   maxHealth: 75
+  hitParticle: {fileID: 0}
 --- !u!114 &530258377075734466
 MonoBehaviour:
   m_ObjectHideFlags: 0
