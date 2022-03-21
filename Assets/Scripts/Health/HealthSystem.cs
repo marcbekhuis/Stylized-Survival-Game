@@ -10,18 +10,21 @@ public class HealthSystem : MonoBehaviourPun
     [SerializeField] private float health;
     [SerializeField] private float maxHealth;
     [SerializeField] private ParticleSystem hitParticle;
-    public float Health { get=>health; set {
+    public float Health
+    {
+        get => health; set
+        {
             health = Mathf.Clamp(value, 0, maxHealth);
             onHealthChanged(health, maxHealth);
-            if(hitParticle)
+            if (hitParticle)
                 hitParticle.Play();
             if (photonView.IsMine)
                 photonView.RPC("RPCSyncHealth", RpcTarget.Others, health, maxHealth);
-            if(health <= 0)
+            if (health <= 0)
             {
                 OnDeath();
             }
-        } 
+        }
     }
 
     protected virtual void OnDeath()
