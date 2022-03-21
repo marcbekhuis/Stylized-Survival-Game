@@ -71,8 +71,9 @@ public class GameManager : MonoBehaviourPunCallbacks
             List<Transform> availableSpawnPoints = new List<Transform>();
             foreach (Transform point in spawnPoints)
             {
-                if (!Physics.CheckSphere(point.position, 0.1f))
-                    availableSpawnPoints.Add(point);
+                if (point.gameObject.activeSelf)
+                    if (!Physics.CheckSphere(point.position, 0.1f))
+                        availableSpawnPoints.Add(point);
             }
             if(availableSpawnPoints.Count > 0)
                 spawnPoint = availableSpawnPoints[Random.Range(0, availableSpawnPoints.Count)].position;
