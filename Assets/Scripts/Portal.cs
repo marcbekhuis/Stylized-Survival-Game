@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class Portal : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Transform destination;
+    [SerializeField] private LayerMask targetLayer;
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.gameObject.layer == (other.gameObject.layer | (1 << targetLayer)))
+            if (destination)
+                other.transform.position = destination.position;
     }
 }
