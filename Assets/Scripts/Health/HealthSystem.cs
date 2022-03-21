@@ -9,9 +9,12 @@ public class HealthSystem : MonoBehaviourPun
     public event OnHealthChange onHealthChanged = delegate { };
     [SerializeField] private float health;
     [SerializeField] private float maxHealth;
+    [SerializeField] private ParticleSystem hitParticle;
     public float Health { get=>health; set {
             health = Mathf.Clamp(value, 0, maxHealth);
             onHealthChanged(health, maxHealth);
+            if(hitParticle)
+                hitParticle.Play();
             if (photonView.IsMine)
                 photonView.RPC("RPCSyncHealth", RpcTarget.Others, health, maxHealth);
             if(health <= 0)
@@ -31,6 +34,8 @@ public class HealthSystem : MonoBehaviourPun
     {
         this.health = health;
         this.maxHealth = maxHealth;
+        if (hitParticle)
+            hitParticle.Play();
         onHealthChanged(this.health, this.maxHealth);
     }
 

@@ -8,6 +8,7 @@ public class HotbarInventory : Inventory
     [SerializeField] private InputActions secondairyAction;
     [SerializeField] private InputActions[] inputActions;
     [SerializeField] private Transform itemTransform;
+    [SerializeField] private Inventory mainInventory;
 
     public Item selectedItem
     {
@@ -36,7 +37,7 @@ public class HotbarInventory : Inventory
                 UseableItem item = selectedItem.GetType<UseableItem>();
                 if (item)
                 {
-                    item.UsePrimairy(transform, itemTransform, new Inventory[] { this });
+                    item.UsePrimairy(transform, itemTransform, new Inventory[] { this, mainInventory });
                 }
             }
             if (InputManager.instance.GetKeyDown(secondairyAction))
@@ -44,7 +45,7 @@ public class HotbarInventory : Inventory
                 UseableItem item = selectedItem.GetType<UseableItem>();
                 if (item)
                 {
-                    item.UseSecondairy(transform, itemTransform, new Inventory[] { this });
+                    item.UseSecondairy(transform, itemTransform, new Inventory[] { this, mainInventory });
                 }
             }
         }
