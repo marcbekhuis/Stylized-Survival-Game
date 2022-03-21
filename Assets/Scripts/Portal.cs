@@ -9,8 +9,7 @@ public class Portal : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == (other.gameObject.layer | (1 << targetLayer)))
-            if (destination)
-                other.transform.position = destination.position;
+        Debug.LogError("fuiwqhyifu8weqgyfuweq8dfhmyuwe7qifhduewiufhduei9ufheidfheh8ii");
+        other.transform.position = destination.position;
     }
 }
