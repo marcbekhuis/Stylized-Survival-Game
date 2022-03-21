@@ -59663,7 +59663,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 150165523}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 787.2025, y: 7.456772, z: -725.1}
+  m_LocalPosition: {x: 787.2035, y: 7.456665, z: -725.1}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -120843,7 +120843,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 299791487}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 813.90125, y: 8.041664, z: 660.4026}
+  m_LocalPosition: {x: 813.90125, y: 8.041595, z: 660.40295}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -250052,7 +250052,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 614932843}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 684.60254, y: 9.315567, z: 728}
+  m_LocalPosition: {x: 684.6034, y: 9.315628, z: 728}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -260336,7 +260336,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 640245860}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 127.400024, y: 10.8138275, z: 739.10254}
+  m_LocalPosition: {x: 127.400024, y: 10.813728, z: 739.10266}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -415706,7 +415706,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1007762356}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 837.00256, y: 13.423157, z: 116.6001}
+  m_LocalPosition: {x: 837.00305, y: 13.4229965, z: 116.6001}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -431152,7 +431152,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -10, y: -70}
+  m_AnchoredPosition: {x: -0.00024414062, y: -50}
   m_SizeDelta: {x: 512, y: 32}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1047269241
@@ -567824,8 +567824,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -10, y: -10}
-  m_SizeDelta: {x: 1024, y: 64}
+  m_AnchoredPosition: {x: -0.00024414062, y: 0}
+  m_SizeDelta: {x: 768, y: 48}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1371377124
 MonoBehaviour:
@@ -600179,7 +600179,7 @@ MonoBehaviour:
   enemyPrefabs:
   - prefab: {fileID: 317443901949528532, guid: b99729518b89e87409260f815f1d4d73, type: 3}
     maxAmount: 50
-    spawnCooldown: 60
+    spawnCooldown: 20
     minSpawnRadius: 20
     maxSpawnRadius: 40
     groundOffset: {x: 0, y: 3, z: 0}
