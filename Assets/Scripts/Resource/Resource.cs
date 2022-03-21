@@ -7,15 +7,19 @@ using Photon.Realtime;
 
 public class Resource : MonoBehaviourPunCallbacks
 {
+    [SerializeField] private float maxHealth = 1;
     [SerializeField] private ResourceTypes resourceType;
     [SerializeField] private ItemWithAmount[] items;
 
     [SerializeField] private AnimationCurve sizeAge;
     [SerializeField] private float respawnCooldown = 10;
+    [SerializeField] private float animationDuration = 2;
 
     [SerializeField] private float ageSec;
     private float respawnTime = 0;
     private bool destroyed = false;
+    private float health;
+    private Quaternion normalRotation;
 
     private Collider collider;
 
@@ -23,8 +27,10 @@ public class Resource : MonoBehaviourPunCallbacks
     void Start()
     {
         //if(photonView.IsMine)
+        health = maxHealth;
         ageSec = GetAgeFromSize();
         collider = GetComponent<Collider>();
+        normalRotation = transform.rotation;
     }
 
     float GetAgeFromSize()
@@ -64,6 +70,7 @@ public class Resource : MonoBehaviourPunCallbacks
                     lod.gameObject.SetActive(true);
                 }
                 collider.enabled = true;
+                transform.rotation = normalRotation;
                 ageSec = 0;
                 transform.localScale = Vector3.one * sizeAge.Evaluate(ageSec / 60f);
                 destroyed = false;
@@ -81,8 +88,11 @@ public class Resource : MonoBehaviourPunCallbacks
         return toolResourceType == resourceType;
     }
 
-    public void Harvest(Inventory[] inventories)
+    public void Harvest(Inventory[] inventories, float damage, Transform harvesterTransform)
     {
+        health = Mathf.Clamp(health - damage, 0, maxHealth);
+        if (health > 0) return;
+
         foreach (var item in items)
         {
             foreach (var inventory in inventories)
@@ -94,15 +104,29 @@ public class Resource : MonoBehaviourPunCallbacks
                 }
             }
         }
+
+        StartCoroutine(Animation(harvesterTransform));
+        respawnTime = GameManager.instance.gameTime + respawnCooldown;
+        destroyed = true;
+        //photonView.RPC("RPCSyncHarvest", RpcTarget.All);
+    }
+
+    private IEnumerator Animation(Transform harvesterTransform)
+    {
+        Vector2 direction = new Vector2(this.transform.position.x - harvesterTransform.position.x, this.transform.position.z - harvesterTransform.position.z).normalized;
+        collider.enabled = false;
+        for (float i = 0; i < animationDuration; i += Time.deltaTime)
+        {
+            float progress = i / animationDuration;
+            this.transform.Rotate(new Vector3(90 * direction.x * Time.deltaTime / animationDuration, 0, 90 * direction.y * Time.deltaTime / animationDuration),Space.World);
+            yield return null;
+            
+        }
         foreach (Transform lod in transform)
         {
             lod.gameObject.SetActive(false);
         }
-        respawnTime = GameManager.instance.gameTime + respawnCooldown;
-        collider.enabled = false;
-        destroyed = true;
-        //photonView.RPC("RPCSyncHarvest", RpcTarget.All);
-    }
+    } 
 
     //public override void OnPlayerEnteredRoom(Player newPlayer)
     //{

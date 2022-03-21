@@ -38,7 +38,7 @@ public class Tool : Weapon
             {
                 if (resource.CanHarvest(resourceType))
                 {
-                    resource.Harvest(inventories);
+                    resource.Harvest(inventories, damage, userTransform);
                     return;
                 }
             }
