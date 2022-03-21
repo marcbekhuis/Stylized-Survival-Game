@@ -14,10 +14,11 @@ public class HealthSystem : MonoBehaviourPun
     {
         get => health; set
         {
+            if (hitParticle)
+                if(value < health)
+                    hitParticle.Play();
             health = Mathf.Clamp(value, 0, maxHealth);
             onHealthChanged(health, maxHealth);
-            if (hitParticle)
-                hitParticle.Play();
             if (photonView.IsMine)
                 photonView.RPC("RPCSyncHealth", RpcTarget.Others, health, maxHealth);
             if (health <= 0)
