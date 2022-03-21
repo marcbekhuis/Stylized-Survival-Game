@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         if (instance) Destroy(this);
         else instance = this;
+        UseableItem.ClearEvents();
     }
 
     private void Start()
