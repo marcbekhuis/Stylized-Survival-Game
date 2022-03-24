@@ -13,6 +13,7 @@ public class ItemDisplay : MonoBehaviour
     private Image Durabilityfill;
     private RectTransform rectTransform;
     private bool tooltipActivating = true;
+    private bool showDurability;
 
     public Item item
     {
@@ -29,8 +30,9 @@ public class ItemDisplay : MonoBehaviour
         rectTransform = GetComponent<RectTransform>();
     }
 
-    public void Setup(bool tooltipactivating)
+    public void Setup(bool tooltipactivating, bool showDurability = true)
     {
+        this.showDurability = showDurability;
         amountText = transform.Find("Amount").GetComponent<Text>();
         iconImage = transform.Find("Icon").GetComponent<Image>();
         durabilityBar = transform.Find("Durability bar").GetComponent<Image>();
@@ -52,7 +54,7 @@ public class ItemDisplay : MonoBehaviour
             amountText.gameObject.SetActive(true);
         }
         iconImage.sprite = item.icon;
-        if (item.IsType<DurabilityItem>())
+        if (item.IsType<DurabilityItem>() && showDurability)
         {
             DurabilityItem durability = item.GetType<DurabilityItem>();
             if (durability.maxDurability > 0)

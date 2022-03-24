@@ -14,6 +14,7 @@ public class ItemContainer : MonoBehaviour
     private Image backgroundImage;
     private RectTransform rectTransform;
     private bool movableContainer = true;
+    bool showDurability;
 
     public Item item
     {
@@ -36,7 +37,7 @@ public class ItemContainer : MonoBehaviour
             {
                 itemVar = value;
                 itemDisplay = Instantiate(itemDisplayPrefab, transform);
-                itemDisplay.Setup(true);
+                itemDisplay.Setup(true, showDurability);
                 itemDisplay.item = item;
             }
         }
@@ -47,9 +48,10 @@ public class ItemContainer : MonoBehaviour
         rectTransform = GetComponent<RectTransform>();
     }
 
-    public void Setup(Vector2Int index, bool movableContainer, Inventory inventory)
+    public void Setup(Vector2Int index, bool movableContainer, Inventory inventory, bool showDurability = true)
     {
         backgroundImage = GetComponent<Image>();
+        this.showDurability = showDurability;
         this.index = index;
         this.movableContainer = movableContainer;
         this.inventory = inventory;

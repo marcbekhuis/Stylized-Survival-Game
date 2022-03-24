@@ -30,6 +30,7 @@ public class ResourceSpawnerEditor : MonoBehaviour
     void Update()
     {
         if (!replaceResources) return;
+        replaceResources = false;
         foreach (Transform resource in this.transform)
         {
             DestroyImmediate(resource.gameObject);
@@ -44,7 +45,6 @@ public class ResourceSpawnerEditor : MonoBehaviour
             {
                 if (!PlaceResource(resourceEntry)) i--;
             }
-            replaceResources = false;
         }
     }
 

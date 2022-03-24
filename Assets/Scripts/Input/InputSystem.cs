@@ -32,6 +32,7 @@ public class InputSystem
         { InputActions.SkipTutorial, new List<KeyCode>{KeyCode.Backspace}},
         { InputActions.TutorialNext, new List<KeyCode>{KeyCode.Return}},
         { InputActions.ToggleFullscreen, new List<KeyCode>{KeyCode.F11}},
+        { InputActions.ToggleCraftingMenu, new List<KeyCode>{KeyCode.C}},
     };
 
     public virtual float GetAxis(InputAxis axis)

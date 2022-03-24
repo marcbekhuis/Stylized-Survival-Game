@@ -30,5 +30,6 @@ public class InputSystemKeyboard : InputSystem
         { InputActions.Minimap, new List<KeyCode>{KeyCode.M}},
         { InputActions.SkipTutorial, new List<KeyCode>{KeyCode.Backspace}},
         { InputActions.TutorialNext, new List<KeyCode>{KeyCode.Return}},
+        { InputActions.ToggleCraftingMenu, new List<KeyCode>{KeyCode.C}},
     };
 }

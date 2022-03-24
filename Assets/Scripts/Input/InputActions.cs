@@ -30,4 +30,5 @@ public enum InputActions
     SkipTutorial,
     TutorialNext,
     ToggleFullscreen,
+    ToggleCraftingMenu,
 }
