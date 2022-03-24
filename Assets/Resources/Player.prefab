@@ -430,14 +430,12 @@ MonoBehaviour:
     amount: 1
   - item: {fileID: 11400000, guid: 7b0945e6e0e1a0d42a50001870361c16, type: 2}
     amount: 1
-  - item: {fileID: 11400000, guid: a929086a6c3b5ec45927c283bdc75e6c, type: 2}
-    amount: 10
-  - item: {fileID: 11400000, guid: 08e3fb2023eb900418a22867ee6e175d, type: 2}
-    amount: 10
+  - item: {fileID: 11400000, guid: 8caf9144959cf204eba501f2a3a81d51, type: 2}
+    amount: 1
   - item: {fileID: 11400000, guid: 7f0fbc62066e01f45a8901195ec5727b, type: 2}
     amount: 10
   - item: {fileID: 11400000, guid: 340edd051621e5d48833e32bf852a9aa, type: 2}
-    amount: 10
+    amount: 20
   primairyAction: 6
   secondairyAction: 7
   inputActions: 0b0000000c0000000d0000000e0000000f00000010000000110000001200000013000000
