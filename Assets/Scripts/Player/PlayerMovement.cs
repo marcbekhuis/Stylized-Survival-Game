@@ -9,6 +9,10 @@ public class PlayerMovement : CharacterMovement
     // Update is called once per frame
     protected override void Update()
     {
+        if (isTeleporting) {
+            isTeleporting = false;
+            return;
+        }
         if (!photonView.IsMine) return;
         base.Update();
         if (!GameManager.instance.playerGameInputBlocked)

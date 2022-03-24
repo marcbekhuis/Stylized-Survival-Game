@@ -310,6 +310,7 @@ MonoBehaviour:
   groundCheckMask:
     serializedVersion: 2
     m_Bits: 1088
+  isTeleporting: 0
   radius: 15
   cornerAcceptanceRange: 1
   targetAcceptanceRange: 4

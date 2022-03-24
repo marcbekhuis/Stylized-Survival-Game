@@ -27,6 +27,11 @@ public class AIMovement : CharacterMovement
 
     void Update()
     {
+        if (isTeleporting)
+        {
+            isTeleporting = false;
+            return;
+        }
         base.Update();
 
         FindTarget();

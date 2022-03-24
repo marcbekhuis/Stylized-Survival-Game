@@ -345,6 +345,7 @@ MonoBehaviour:
   groundCheckMask:
     serializedVersion: 2
     m_Bits: 1088
+  isTeleporting: 0
 --- !u!114 &3598005031447745124
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -23,6 +23,7 @@ public class CharacterMovement : MonoBehaviourPun
     private float velocity;
     private MovementType movementType;
     private Vector2 Oldposition;
+    public bool isTeleporting = false;
 
     public float Velocity { get => velocity; }
     public MovementType GetMovement { get => movementType; }
@@ -44,6 +45,11 @@ public class CharacterMovement : MonoBehaviourPun
     // Update is called once per frame
     protected virtual void Update()
     {
+        if (isTeleporting)
+        {
+            isTeleporting = false;
+            return;
+        }
         if (GroundCheck)
         {
             airTime = 0;
@@ -57,6 +63,11 @@ public class CharacterMovement : MonoBehaviourPun
 
     protected virtual void AfterUpdate()
     {
+        if (isTeleporting)
+        {
+            isTeleporting = false;
+            return;
+        }
         if (photonView.IsMine)
             photonView.RPC("RPCSyncTransform", RpcTarget.Others, transform.position, transform.rotation);
         CalculateVelocity();
@@ -115,6 +126,7 @@ public class CharacterMovement : MonoBehaviourPun
         Gizmos.color = Color.red;
         Gizmos.DrawCube(transform.position + groundCheckOffset, groundCheckSize);
     }
+
 
     public enum MovementType {Idle, Walk, Run}
 }
