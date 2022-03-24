@@ -61,8 +61,9 @@ public class ResourceSpawnerEditor : MonoBehaviour
             if (Vector3.Distance(position, resource.transform.position) < resourceEntry.minRadius) return false;
         }
 
-        GameObject placedResource = Instantiate(resourceEntry.resourcePrefab, position + resourceEntry.offset, new Quaternion(0,0,0,0), this.transform);
-        placedResource.transform.localScale = Vector3.one * Random.Range(resourceEntry.randomSizeRange.x, resourceEntry.randomSizeRange.y);
+        float scale = Random.Range(resourceEntry.randomSizeRange.x, resourceEntry.randomSizeRange.y);
+        GameObject placedResource = Instantiate(resourceEntry.resourcePrefab, position + resourceEntry.offset * scale, new Quaternion(0,0,0,0), this.transform);
+        placedResource.transform.localScale = Vector3.one * scale;
         if(resourceEntry.randomRotation)
             placedResource.transform.eulerAngles = new Vector3(Random.Range(0f, 360f), Random.Range(0f, 360f), Random.Range(0f, 360f));
         else
