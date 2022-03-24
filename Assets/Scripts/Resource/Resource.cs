@@ -14,6 +14,7 @@ public class Resource : MonoBehaviourPunCallbacks
     [SerializeField] private AnimationCurve sizeAge;
     [SerializeField] private float respawnCooldown = 10;
     [SerializeField] private float animationDuration = 2;
+    [SerializeField] private ParticleSystem harvestEffect;
 
     [SerializeField] private float ageSec;
     private float respawnTime = 0;
@@ -91,6 +92,7 @@ public class Resource : MonoBehaviourPunCallbacks
     public void Harvest(Inventory[] inventories, float damage, Transform harvesterTransform)
     {
         health = Mathf.Clamp(health - damage, 0, maxHealth);
+        harvestEffect.Play();
         if (health > 0) return;
 
         foreach (var item in items)
