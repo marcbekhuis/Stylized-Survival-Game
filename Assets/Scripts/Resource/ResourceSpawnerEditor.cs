@@ -37,6 +37,9 @@ public class ResourceSpawnerEditor : MonoBehaviour
 
         foreach (var resourceEntry in resourceEntries)
         {
+            if (!resourceEntry.resourcePrefab) continue;
+            if (resourceEntry.minPlacementHeight == resourceEntry.maxPlacementHeight) continue;
+            if (resourceEntry.randomSizeRange.x < 0 && resourceEntry.randomSizeRange.y < 0) continue;
             for (int i = 0; i < resourceEntry.numberOfResources; i++)
             {
                 if (!PlaceResource(resourceEntry)) i--;
