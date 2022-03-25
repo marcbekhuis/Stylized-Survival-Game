@@ -9,7 +9,7 @@ public class CraftingManager : Singleton<CraftingManager>
     [SerializeField] private Transform craftingParent;
     [SerializeField] private ItemContainer itemContainerPrefab;
 
-    public Inventory inventory;
+    public List<Inventory> inventories = new List<Inventory>();
 
     // Start is called before the first frame update
     void Start()
@@ -41,12 +41,33 @@ public class CraftingManager : Singleton<CraftingManager>
     {
         foreach (var requiredItem in craftingItem.requiredItems)
         {
-            if (inventory.GetItemAmount(requiredItem.item) < requiredItem.amount) return;
+            bool anInventoryHas = false;
+            foreach (var inventory in inventories)
+            {
+                if (inventory.GetItemAmount(requiredItem.item) >= requiredItem.amount) anInventoryHas = true;
+            }
+            if (!anInventoryHas) return;
         }
 
         foreach (var requiredItem in craftingItem.requiredItems)
         {
-            //sinventory.RemoveItem(requiredItem.item, amount);
+            int amount = requiredItem.amount;
+            foreach (var inventory in inventories)
+            {
+                amount = inventory.RemoveItem(requiredItem.item, amount);
+                if (amount <= 0) break;
+            }
+        }
+        foreach (var rewardItem in craftingItem.rewardItems)
+        {
+            foreach (var inventory in inventories)
+            {
+                if (inventory.HasSpace())
+                {
+                    inventory.AddItem(rewardItem.item, rewardItem.amount);
+                    return;
+                }
+            }
         }
     }
 }

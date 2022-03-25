@@ -218,4 +218,29 @@ public class Inventory : MonoBehaviourPun
 
         return null;
     }
+
+    public virtual int RemoveItem(Item item, int amount)
+    {
+        int backupAmount = amount;
+        for (int y = 0; y < size.y; y++)
+        {
+            for (int x = 0; x < size.x; x++)
+            {
+                if (slots[x, y])
+                {
+                    if (slots[x, y].name == item.name)
+                    {
+                        backupAmount -= slots[x, y].Amount;
+                        slots[x, y].Amount -= amount;
+                        amount = backupAmount;
+                        if (slots[x, y].Amount <= 0) slots[x, y] = null;
+                        OnInventoryChanged();
+                        if (amount <= 0) return 0;
+                    }
+                }
+            }
+        }
+
+        return amount;
+    }
 }
