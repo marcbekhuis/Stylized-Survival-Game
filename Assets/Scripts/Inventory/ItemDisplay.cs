@@ -20,8 +20,20 @@ public class ItemDisplay : MonoBehaviour
         get => itemVar;
         set
         {
+            if (item)
+            {
+                item.OnAmountUpdate -= UpdateAmount;
+                if (item.IsType<DurabilityItem>() && showDurability)
+                {
+                    DurabilityItem durability = item.GetType<DurabilityItem>();
+                    if (durability.maxDurability > 0)
+                    {
+                        durability.onDurabilityChanged -= UpdateDurabilityBar;
+                    }
+                }
+            }
             itemVar = value;
-            if(itemVar) UpdateDisplay();
+            if (value) UpdateDisplay();
         }
     }
 

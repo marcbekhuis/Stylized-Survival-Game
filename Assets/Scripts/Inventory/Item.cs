@@ -45,7 +45,7 @@ public class Item : ScriptableObject
         get => amount; 
         set
         {
-            amount = value;
+            amount = Mathf.Clamp(value, 0, maxStack);
             OnAmountUpdate(amount);
         } 
     }
