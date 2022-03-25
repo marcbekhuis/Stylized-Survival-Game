@@ -35,7 +35,7 @@ public class HealthSystem : MonoBehaviourPun
     public void TakeDamage(float damage, Inventory[] inventory)
     {
         lastDamagingInventories = inventory;
-        health -= damage;
+        Health -= damage;
     }
 
     protected virtual void OnDeath()
