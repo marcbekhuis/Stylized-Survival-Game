@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5131ee2aa10586f46be12d7cf2be0167, type: 3}
   m_Name: Coal
   m_EditorClassIdentifier: 
-  description: Put this in your furnace to smelt ores
+  description: Good for smelting
   weight: 1
   maxStack: 20
-  icon: {fileID: 21300000, guid: 72a1379c61c8f8e409d2fc33196e4c6e, type: 3}
+  icon: {fileID: -152409788, guid: 3dd91e572c1abb24798e00ac69355b41, type: 3}
   sprite: {fileID: 0}
-  amount: 0
   inventory: {fileID: 0}

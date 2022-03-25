@@ -180,9 +180,13 @@ MonoBehaviour:
   resourceType: 1
   items:
   - item: {fileID: 11400000, guid: 979f52c994a792448b37783ce1c7ae0e, type: 2}
-    amount: 3
+    chance: 100
+    minAmount: 1
+    maxAmount: 3
   - item: {fileID: 11400000, guid: 4bf4fe01f77fa264c925f4c56e08bc0f, type: 2}
-    amount: 3
+    chance: 75
+    minAmount: 1
+    maxAmount: 3
   sizeAge:
     serializedVersion: 2
     m_Curve:

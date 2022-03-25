@@ -179,6 +179,7 @@ MonoBehaviour:
   health: 0
   maxHealth: 15
   hitParticle: {fileID: 410204513410896969}
+  deathItemDrops: []
 --- !u!114 &611084825
 MonoBehaviour:
   m_ObjectHideFlags: 0

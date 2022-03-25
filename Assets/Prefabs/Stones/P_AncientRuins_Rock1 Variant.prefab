@@ -302,7 +302,21 @@ MonoBehaviour:
   resourceType: 0
   items:
   - item: {fileID: 11400000, guid: d054385f453e7f042bea1d3172cefefb, type: 2}
-    amount: 3
+    chance: 100
+    minAmount: 1
+    maxAmount: 3
+  - item: {fileID: 11400000, guid: 9304913f71f2f0b4a9001954620a4684, type: 2}
+    chance: 70
+    minAmount: 1
+    maxAmount: 3
+  - item: {fileID: 11400000, guid: 5ea8364e65ebae54095111260976a85e, type: 2}
+    chance: 50
+    minAmount: 1
+    maxAmount: 3
+  - item: {fileID: 11400000, guid: 20602ac78e08d9d459d7da1055445c89, type: 2}
+    chance: 10
+    minAmount: 1
+    maxAmount: 3
   sizeAge:
     serializedVersion: 2
     m_Curve:

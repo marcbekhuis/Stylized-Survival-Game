@@ -79382,6 +79382,7 @@ MonoBehaviour:
   craftingParent: {fileID: 596354660}
   itemContainerPrefab: {fileID: 5169219559322595997, guid: e24a8402a78379f42975bda9521e3d19,
     type: 3}
+  inventories: []
 --- !u!114 &1452325185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79396,7 +79397,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   update: 0
   craftingItems:
+  - {fileID: 11400000, guid: fb8a9c9b3cd1186409ac5bbfcea91932, type: 2}
+  - {fileID: 11400000, guid: 92af12d328c162a46969a10956112925, type: 2}
+  - {fileID: 11400000, guid: 4dbca480b851b314584227755cdc9c58, type: 2}
+  - {fileID: 11400000, guid: d347a32952be14547bd55b2d2c7c8c99, type: 2}
+  - {fileID: 11400000, guid: 448f8605f87407040abdae37adc5ce41, type: 2}
+  - {fileID: 11400000, guid: 1cd44c03dbcecd34199cc1c28657918f, type: 2}
+  - {fileID: 11400000, guid: 171c6494ecfa5964f919832e5a6b77c1, type: 2}
+  - {fileID: 11400000, guid: ead4967cedcf9264ba31ebfa596b06e0, type: 2}
   - {fileID: 11400000, guid: 560b1d16e8a3c8b46897df0f04c6ab90, type: 2}
+  - {fileID: 11400000, guid: fedf3eaf8397e2c48a90b01179f5c4ef, type: 2}
+  - {fileID: 11400000, guid: ddffb7ba9f70e214c922d209c6ef74f6, type: 2}
 --- !u!114 &1452325186
 MonoBehaviour:
   m_ObjectHideFlags: 0

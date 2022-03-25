@@ -424,18 +424,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sizeVar: {x: 9, y: 1}
   startingItems:
-  - item: {fileID: 11400000, guid: 0bd0133e282214748966a24b5db85875, type: 2}
-    amount: 1
-  - item: {fileID: 11400000, guid: d5e001c2c7ceca741a8dcf7733fbd50a, type: 2}
-    amount: 1
-  - item: {fileID: 11400000, guid: 7b0945e6e0e1a0d42a50001870361c16, type: 2}
-    amount: 1
-  - item: {fileID: 11400000, guid: 8caf9144959cf204eba501f2a3a81d51, type: 2}
-    amount: 1
-  - item: {fileID: 11400000, guid: 7f0fbc62066e01f45a8901195ec5727b, type: 2}
-    amount: 10
-  - item: {fileID: 11400000, guid: 340edd051621e5d48833e32bf852a9aa, type: 2}
+  - item: {fileID: 11400000, guid: d054385f453e7f042bea1d3172cefefb, type: 2}
     amount: 20
+  - item: {fileID: 11400000, guid: 7f0fbc62066e01f45a8901195ec5727b, type: 2}
+    amount: 5
   primairyAction: 6
   secondairyAction: 7
   inputActions: 0b0000000c0000000d0000000e0000000f00000010000000110000001200000013000000
@@ -486,6 +478,7 @@ MonoBehaviour:
   health: 0
   maxHealth: 50
   hitParticle: {fileID: 3101977139397988140}
+  deathItemDrops: []
 --- !u!114 &-7541117096884739190
 MonoBehaviour:
   m_ObjectHideFlags: 0

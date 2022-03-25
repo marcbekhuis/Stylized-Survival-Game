@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 15b74280bf07e754da025d687ce2c207, type: 3}
-  m_Name: Axe
+  m_Name: Cooked meat
   m_EditorClassIdentifier: 
   requiredItems:
-  - item: {fileID: 11400000, guid: 979f52c994a792448b37783ce1c7ae0e, type: 2}
-    amount: 2
-  - item: {fileID: 11400000, guid: d054385f453e7f042bea1d3172cefefb, type: 2}
-    amount: 3
+  - item: {fileID: 11400000, guid: 340edd051621e5d48833e32bf852a9aa, type: 2}
+    amount: 1
+  - item: {fileID: 11400000, guid: a929086a6c3b5ec45927c283bdc75e6c, type: 2}
+    amount: 1
   rewardItems:
-  - item: {fileID: 11400000, guid: 7b0945e6e0e1a0d42a50001870361c16, type: 2}
+  - item: {fileID: 11400000, guid: ac6d441760b5cc84ea2aaf9b7f79550b, type: 2}
     amount: 1

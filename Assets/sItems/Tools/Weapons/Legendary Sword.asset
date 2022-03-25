@@ -12,12 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88e9a05bfcbd0848b01ec318430cef7, type: 3}
   m_Name: Legendary Sword
   m_EditorClassIdentifier: 
-  description: Only for the mightiest
+  description: With great power comes great responsibility
   weight: 0
   maxStack: 1
   icon: {fileID: 21300000, guid: 63cf3eb3e3911414b9767511ed6645ad, type: 3}
   sprite: {fileID: 0}
-  amount: 0
   inventory: {fileID: 0}
   maxDurability: 50
   range: 5

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15b74280bf07e754da025d687ce2c207, type: 3}
+  m_Name: Diamond
+  m_EditorClassIdentifier: 
+  requiredItems:
+  - item: {fileID: 11400000, guid: 20602ac78e08d9d459d7da1055445c89, type: 2}
+    amount: 1
+  - item: {fileID: 11400000, guid: a929086a6c3b5ec45927c283bdc75e6c, type: 2}
+    amount: 1
+  rewardItems:
+  - item: {fileID: 11400000, guid: fe2a9b42d3de4c741bcb8d34db5c44a8, type: 2}
+    amount: 1
