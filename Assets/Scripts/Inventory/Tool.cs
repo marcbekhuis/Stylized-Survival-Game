@@ -44,7 +44,7 @@ public class Tool : Weapon
             }
             if (target.transform.TryGetComponent<HealthSystem>(out HealthSystem healthSystem))
             {
-                healthSystem.Health -= damage;
+                healthSystem.TakeDamage(damage, inventories);
                 return;
             }
         }

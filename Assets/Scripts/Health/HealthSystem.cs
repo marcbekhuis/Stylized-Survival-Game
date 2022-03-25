@@ -10,6 +10,10 @@ public class HealthSystem : MonoBehaviourPun
     [SerializeField] private float health;
     [SerializeField] private float maxHealth;
     [SerializeField] private ParticleSystem hitParticle;
+    [SerializeField] private ItemRandom[] deathItemDrops;
+
+    private Inventory[] lastDamagingInventories;
+
     public float Health
     {
         get => health; set
@@ -28,8 +32,31 @@ public class HealthSystem : MonoBehaviourPun
         }
     }
 
+    public void TakeDamage(float damage, Inventory[] inventory)
+    {
+        lastDamagingInventories = inventory;
+        health -= damage;
+    }
+
     protected virtual void OnDeath()
     {
+        if (lastDamagingInventories != null)
+        {
+            foreach (var item in deathItemDrops)
+            {
+                foreach (var inventory in lastDamagingInventories)
+                {
+                    if (inventory.HasSpace() || inventory.HasItemSlotWithSpace(item.item))
+                    {
+                        int amount = item.GetAmount();
+                        if (amount > 0)
+                            inventory.AddItem(item.item, amount);
+                        break;
+                    }
+                }
+            }
+        }
+
         PhotonNetwork.Destroy(this.gameObject);
     }
 
