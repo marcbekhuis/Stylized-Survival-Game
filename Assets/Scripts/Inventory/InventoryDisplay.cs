@@ -15,9 +15,13 @@ public class InventoryDisplay : MonoBehaviour
         get => inventory; 
         set 
         { 
+            if(inventory) inventory.OnInventoryChanged -= UpdateDisplay;
             inventory = value;
-            inventory.OnInventoryChanged += UpdateDisplay;
-            if (itemContainers.Count <= 0) UpdateDisplay();
+            if (inventory)
+            {
+                inventory.OnInventoryChanged += UpdateDisplay;
+                UpdateDisplay();
+            }
         } 
     }
 
@@ -40,6 +44,7 @@ public class InventoryDisplay : MonoBehaviour
             if (itemContainers.Count > i)
             {
                 itemContainers[i].item = items[i];
+                itemContainers[i].inventory = inventory;
             }
             else
             {
