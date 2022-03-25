@@ -17,10 +17,9 @@ MonoBehaviour:
   maxStack: 1
   icon: {fileID: 21300000, guid: de204bf247e65b042a2f21c9b59a3b12, type: 3}
   sprite: {fileID: 0}
-  amount: 0
   inventory: {fileID: 0}
   maxDurability: 100
-  range: 5
+  range: 2
   damage: 1
   cooldown: 2
   durabilityDamage: 1

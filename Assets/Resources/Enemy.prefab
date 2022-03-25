@@ -177,7 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 30
+  maxHealth: 15
   hitParticle: {fileID: 410204513410896969}
 --- !u!114 &611084825
 MonoBehaviour:

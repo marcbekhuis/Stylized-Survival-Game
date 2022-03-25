@@ -17,12 +17,11 @@ MonoBehaviour:
   maxStack: 1
   icon: {fileID: 21300000, guid: 5a15a0cd34eba2a45b72dd17bc2764e2, type: 3}
   sprite: {fileID: 0}
-  amount: 0
   inventory: {fileID: 0}
   maxDurability: 75
   range: 5
-  damage: 2
-  cooldown: 1
+  damage: 3
+  cooldown: 2
   durabilityDamage: 1
   targetLayer:
     serializedVersion: 2
