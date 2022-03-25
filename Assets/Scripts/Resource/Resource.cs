@@ -9,7 +9,7 @@ public class Resource : MonoBehaviourPunCallbacks
 {
     [SerializeField] private float maxHealth = 1;
     [SerializeField] private ResourceTypes resourceType;
-    [SerializeField] private ItemWithAmount[] items;
+    [SerializeField] private ItemRandom[] items;
 
     [SerializeField] private AnimationCurve sizeAge;
     [SerializeField] private float respawnCooldown = 10;
@@ -101,7 +101,9 @@ public class Resource : MonoBehaviourPunCallbacks
             {
                 if (inventory.HasSpace() || inventory.HasItemSlotWithSpace(item.item))
                 {
-                    inventory.AddItem(item.item, item.amount);
+                    int amount = item.GetAmount();
+                    if(amount > 0)
+                        inventory.AddItem(item.item, amount);
                     break;
                 }
             }

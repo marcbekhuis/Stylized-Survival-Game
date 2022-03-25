@@ -37,6 +37,22 @@ public class ItemDisplay : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        if (item)
+        {
+            item.OnAmountUpdate -= UpdateAmount;
+            if (item.IsType<DurabilityItem>() && showDurability)
+            {
+                DurabilityItem durability = item.GetType<DurabilityItem>();
+                if (durability.maxDurability > 0)
+                {
+                    durability.onDurabilityChanged -= UpdateDurabilityBar;
+                }
+            }
+        }
+    }
+
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
