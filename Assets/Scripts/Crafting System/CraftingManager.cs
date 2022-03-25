@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CraftingManager : Singleton<CraftingManager>
 {
     [SerializeField] private GameObject craftingItemPrefab;
     [SerializeField] private Transform craftingParent;
     [SerializeField] private ItemContainer itemContainerPrefab;
+
+    public Inventory inventory;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +19,7 @@ public class CraftingManager : Singleton<CraftingManager>
             GameObject craftingItemObject = Instantiate(craftingItemPrefab, craftingParent);
             Transform requiredItemsObject = craftingItemObject.transform.Find("Required Items");
             Transform rewardItemsObject = craftingItemObject.transform.Find("Reward Items");
+            craftingItemObject.GetComponent<Button>().onClick.AddListener(() => CraftItem(craftingItem));
 
             foreach (var requiredItem in craftingItem.requiredItems)
             {
@@ -30,6 +34,19 @@ public class CraftingManager : Singleton<CraftingManager>
                 itemContainer.Setup(Vector2Int.zero, false, null, false);
                 itemContainer.item = rewardItem.item.Create(rewardItem.item, null, rewardItem.amount);
             }
+        }
+    }
+
+    private void CraftItem(CraftingItem craftingItem)
+    {
+        foreach (var requiredItem in craftingItem.requiredItems)
+        {
+            if (inventory.GetItemAmount(requiredItem.item) < requiredItem.amount) return;
+        }
+
+        foreach (var requiredItem in craftingItem.requiredItems)
+        {
+            //sinventory.RemoveItem(requiredItem.item, amount);
         }
     }
 }

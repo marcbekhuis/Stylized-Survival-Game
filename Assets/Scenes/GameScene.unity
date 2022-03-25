@@ -123049,51 +123049,51 @@ MonoBehaviour:
   resourceFieldZ: {x: -1000, y: 1000}
   resourceEntries:
   - minRadius: 5
-    maxAngle: 0
+    maxAngle: 45
     numberOfResources: 2000
     randomSizeRange: {x: 0.5, y: 1.1}
     offset: {x: 0, y: 0, z: 0}
-    minPlacementHeight: 10
+    minPlacementHeight: 1
     maxPlacementHeight: 300
     randomRotation: 0
     resourcePrefab: {fileID: 1148613061152340, guid: eded051879df4c147b9010199d240258,
       type: 3}
   - minRadius: 0
-    maxAngle: 0
+    maxAngle: 45
     numberOfResources: 200
     randomSizeRange: {x: 3, y: 7}
     offset: {x: 0, y: 0, z: 0}
-    minPlacementHeight: 10
+    minPlacementHeight: 1
     maxPlacementHeight: 300
     randomRotation: 0
     resourcePrefab: {fileID: 4824606120993628256, guid: 09e76f6c157ac1046a14e153e703c9e4,
       type: 3}
   - minRadius: 0
-    maxAngle: 0
+    maxAngle: 45
     numberOfResources: 200
     randomSizeRange: {x: 3, y: 7}
     offset: {x: 0, y: 0, z: 0}
-    minPlacementHeight: 10
+    minPlacementHeight: 1
     maxPlacementHeight: 300
     randomRotation: 0
     resourcePrefab: {fileID: 3698101857456041317, guid: af54c433202ff0f48b3e9bf2410bcd61,
       type: 3}
   - minRadius: 0
-    maxAngle: 0
+    maxAngle: 45
     numberOfResources: 200
     randomSizeRange: {x: 3, y: 7}
     offset: {x: 0, y: 0, z: 0}
-    minPlacementHeight: 10
+    minPlacementHeight: 1
     maxPlacementHeight: 300
     randomRotation: 0
     resourcePrefab: {fileID: 5571042651166025505, guid: fef82575444848b47b39866a1447b157,
       type: 3}
   - minRadius: 0
-    maxAngle: 0
+    maxAngle: 45
     numberOfResources: 200
     randomSizeRange: {x: 3, y: 7}
     offset: {x: 0, y: 0, z: 0}
-    minPlacementHeight: 10
+    minPlacementHeight: 1
     maxPlacementHeight: 300
     randomRotation: 0
     resourcePrefab: {fileID: 1313885842103743314, guid: c563ddfbca5c6684c92dd59d08952447,

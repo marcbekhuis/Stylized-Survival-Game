@@ -17,7 +17,7 @@ public class SetDisplayVariables : MonoBehaviour
         HotbarInventory hotbarInventory = player.GetComponent<HotbarInventory>();
         player.GetComponent<HealthSystem>().onHealthChanged += healthUI.UpdateBar;
         player.GetComponent<FoodSystem>().onFoodChanged += foodUI.UpdateBar;
-
+        CraftingManager.instance.inventory = inventory;
 
         hotbarDisplay.hotbarInventory = hotbarInventory;
         hotbarDisplay.inventoryProp = hotbarInventory;
