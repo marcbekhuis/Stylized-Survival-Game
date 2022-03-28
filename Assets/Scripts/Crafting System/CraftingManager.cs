@@ -9,11 +9,17 @@ public class CraftingManager : Singleton<CraftingManager>
     [SerializeField] private Transform craftingParent;
     [SerializeField] private ItemContainer itemContainerPrefab;
 
-    public List<Inventory> inventories = new List<Inventory>();
+    private List<Inventory> inventories = new List<Inventory>();
 
-    // Start is called before the first frame update
-    void Start()
+    public void SetInventories(List<Inventory> inventories)
     {
+        this.inventories = inventories;
+
+        foreach (Transform child in craftingParent)
+        {
+            Destroy(child.gameObject);
+        }
+
         foreach (var craftingItem in CraftingList.instance.craftingItems)
         {
             GameObject craftingItemObject = Instantiate(craftingItemPrefab, craftingParent);

@@ -10,6 +10,8 @@ public class CraftingList : Singleton<CraftingList>
 
     public List<CraftingItem> craftingItems = new List<CraftingItem>();
 
+#if UNITY_EDITOR
+
     // Update is called once per frame
     void Update()
     {
@@ -22,4 +24,6 @@ public class CraftingList : Singleton<CraftingList>
             craftingItems.Add(AssetDatabase.LoadAssetAtPath<CraftingItem>(AssetDatabase.GUIDToAssetPath(guid)));
         } 
     }
+
+#endif
 }
